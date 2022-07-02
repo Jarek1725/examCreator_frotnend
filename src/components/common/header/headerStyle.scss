@@ -1,0 +1,26 @@
+@use '../styleVariables';
+
+.header_container{
+  display: flex;
+  margin: auto;
+  justify-content: space-between;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  color:styleVariables.$greyColor;
+}
+
+.header_left_panel{
+  cursor: pointer;
+}
+
+.header_right_panel{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & p{
+    padding-left: 25px;
+    cursor: pointer;
+    font-size: 18px;
+  }
+}

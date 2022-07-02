@@ -1,0 +1,116 @@
+@use '../../common/styleVariables';
+
+.index_grid_element_info {
+  background: styleVariables.$greyColor;
+  clip-path: circle(6% at 90% 20%);
+  transition: all .4s cubic-bezier(.79, 0, .18, 1.15);
+  cursor: pointer;
+  position: relative;
+  color: white;
+
+  &:hover {
+    clip-path: circle(75%);
+    background: styleVariables.$greyColor;
+
+    span {
+      transition: all .4s cubic-bezier(.79, 0, .18, 1.15);
+
+      color: styleVariables.$greyColor;
+    }
+  }
+
+  span {
+    float: right;
+    color: white;
+    font-weight: bold;
+    position: relative;
+    margin-right: 9.4%;
+    margin-top: 30px;
+  }
+}
+
+.index_grid_element {
+  position: absolute;
+  padding: 20px;
+}
+
+.index_grid_element, .index_grid_element_info, .index_grid_element_container {
+  height: 200px;
+  border-radius: 20px;
+}
+
+.index_grid_element_container {
+  border: 1px solid styleVariables.$greyColor;
+  position: relative;
+  width: 100%;
+}
+
+.index_grid_element_category {
+  margin: 0;
+  color:styleVariables.$greyColor ;
+  font-size: 18px;
+  font-weight: 300;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 270px;
+}
+
+.index_grid_element_creator {
+  margin-top: 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 270px;
+
+  color:styleVariables.$greyColor;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.index_grid_element_title {
+  color:styleVariables.$greyColor ;
+  font-size: 22px;
+}
+
+.index_grid_element_info_data {
+  padding: 20px;
+
+  p {
+    margin: 0;
+  }
+
+  h2 {
+    margin: 12px 0;
+  }
+}
+
+@media screen and (max-width: 1400px){
+  .index_grid_element_category, .index_grid_element_creator {
+    max-width: 230px;
+  }
+}
+
+@media screen and (max-width: 1290px) {
+  .index_grid_element_category, .index_grid_element_creator {
+    max-width: 320px;
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .index_grid_element_category, .index_grid_element_creator {
+    max-width: 260px;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .index_grid_element_category, .index_grid_element_creator {
+    max-width: 210px;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .index_grid_element_category, .index_grid_element_creator {
+    max-width: 60vw;
+  }
+}
