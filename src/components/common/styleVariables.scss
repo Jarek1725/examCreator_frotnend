@@ -1,5 +1,11 @@
-$greyColor: #4f4f4f;
-$blueColor:#335DFE;
-$complementaryColor:#ff9800;
-$complementaryColorLight:#ffa726;
-$complementaryColorDark:#ef6c00;
+$mainColor: #5B59B5;
+$darkTextColor: #353651;
+$mainTextColor: #707070;
+$lightBlueBgcColor:#FAFCFE;
+
+$mainBorderRadius: 20px;
+
+$secondaryColorPalette: ("pink": #FFC5FB, "light_blue": #9FDEFD, "purple": #CCA7ED, "green": #C8EDA7, "blue": #82A4F7, "yellow": #FDDD9F, "red": #E38C9B);
+
+$breakpoints: ( small: 425px, medium: 768px, large: 1024px, x-large: 1440px ) !default;
+

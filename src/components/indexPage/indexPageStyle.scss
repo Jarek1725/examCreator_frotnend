@@ -1,20 +1,4 @@
-.index_grid_container{
-  width: 90%;
+.index_container{
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 45px;
-  margin: 45px auto;
-}
-
-@media screen and (max-width: 1290px) {
-  .index_grid_container{
-    width: 90%;
-    margin: 45px auto 45px auto;
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media screen and (max-width: 720px) {
-  .index_grid_container{
-    grid-template-columns: repeat(1, 1fr);
-  }
+  grid-template-columns: 15% 1fr 25%;
 }
