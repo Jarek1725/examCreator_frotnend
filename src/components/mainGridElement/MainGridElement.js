@@ -15,7 +15,6 @@ const MainGridElement = (props) => {
     ]
 
     let getRandomColor = () => {
-
         return backgroundsColors[Math.floor(Math.random() * backgroundsColors.length)]
     }
 

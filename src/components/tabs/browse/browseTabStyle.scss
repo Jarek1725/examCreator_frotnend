@@ -8,3 +8,8 @@
 #demo-simple-select{
   padding-left: 13px;
 }
+
+.add_exam_list_container{
+  height: calc(100vh - 16vh - 10vh - 30px);
+  overflow: auto;
+}

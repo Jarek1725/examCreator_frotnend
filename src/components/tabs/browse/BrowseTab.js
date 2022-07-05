@@ -60,16 +60,16 @@ const BrowseTab = () => {
                 ownType: "average"
             },
             rating: {
-                value:4,
-                ownType:"rating"
+                value: 4,
+                ownType: "rating"
             },
             activeQuestions: {
-                value:23,
-                ownType:"activeQuestions"
+                value: 23,
+                ownType: "activeQuestions"
             },
             attempts: {
-                value:23,
-                ownType:"attempts"
+                value: 23,
+                ownType: "attempts"
             },
         },
         {
@@ -82,16 +82,16 @@ const BrowseTab = () => {
                 ownType: "average"
             },
             rating: {
-                value:2.5,
-                ownType:"rating"
+                value: 2.5,
+                ownType: "rating"
             },
             activeQuestions: {
-                value:12,
-                ownType:"activeQuestions"
+                value: 12,
+                ownType: "activeQuestions"
             },
             attempts: {
-                value:44,
-                ownType:"attempts"
+                value: 44,
+                ownType: "attempts"
             },
         },
         {
@@ -104,16 +104,16 @@ const BrowseTab = () => {
                 ownType: "average"
             },
             rating: {
-                value:5,
-                ownType:"rating"
+                value: 5,
+                ownType: "rating"
             },
             activeQuestions: {
-                value:22,
-                ownType:"activeQuestions"
+                value: 22,
+                ownType: "activeQuestions"
             },
             attempts: {
-                value:76,
-                ownType:"attempts"
+                value: 76,
+                ownType: "attempts"
             },
         },
         {
@@ -126,16 +126,16 @@ const BrowseTab = () => {
                 ownType: "average"
             },
             rating: {
-                value:3.5,
-                ownType:"rating"
+                value: 3.5,
+                ownType: "rating"
             },
             activeQuestions: {
-                value:28,
-                ownType:"activeQuestions"
+                value: 28,
+                ownType: "activeQuestions"
             },
             attempts: {
-                value:13,
-                ownType:"attempts"
+                value: 13,
+                ownType: "attempts"
             },
         },
         {
@@ -148,16 +148,148 @@ const BrowseTab = () => {
                 ownType: "average"
             },
             rating: {
-                value:2.5,
-                ownType:"rating"
+                value: 2.5,
+                ownType: "rating"
             },
             activeQuestions: {
-                value:52,
-                ownType:"activeQuestions"
+                value: 52,
+                ownType: "activeQuestions"
             },
             attempts: {
-                value:76,
-                ownType:"attempts"
+                value: 76,
+                ownType: "attempts"
+            },
+        },
+        {
+            id: "#AV391K",
+            title: "Analiza matematyczna",
+            categories: "Matematyka, sesja 2022",
+            lastUpdateDate: "13.02.2022",
+            averageScore: {
+                value: 34,
+                ownType: "average"
+            },
+            rating: {
+                value: 2.5,
+                ownType: "rating"
+            },
+            activeQuestions: {
+                value: 52,
+                ownType: "activeQuestions"
+            },
+            attempts: {
+                value: 76,
+                ownType: "attempts"
+            },
+        },
+        {
+            id: "#AV391K",
+            title: "Analiza matematyczna",
+            categories: "Matematyka, sesja 2022",
+            lastUpdateDate: "13.02.2022",
+            averageScore: {
+                value: 34,
+                ownType: "average"
+            },
+            rating: {
+                value: 2.5,
+                ownType: "rating"
+            },
+            activeQuestions: {
+                value: 52,
+                ownType: "activeQuestions"
+            },
+            attempts: {
+                value: 76,
+                ownType: "attempts"
+            },
+        },
+        {
+            id: "#AV391K",
+            title: "Analiza matematyczna",
+            categories: "Matematyka, sesja 2022",
+            lastUpdateDate: "13.02.2022",
+            averageScore: {
+                value: 34,
+                ownType: "average"
+            },
+            rating: {
+                value: 2.5,
+                ownType: "rating"
+            },
+            activeQuestions: {
+                value: 52,
+                ownType: "activeQuestions"
+            },
+            attempts: {
+                value: 76,
+                ownType: "attempts"
+            },
+        },
+        {
+            id: "#AV391K",
+            title: "Analiza matematyczna",
+            categories: "Matematyka, sesja 2022",
+            lastUpdateDate: "13.02.2022",
+            averageScore: {
+                value: 34,
+                ownType: "average"
+            },
+            rating: {
+                value: 2.5,
+                ownType: "rating"
+            },
+            activeQuestions: {
+                value: 52,
+                ownType: "activeQuestions"
+            },
+            attempts: {
+                value: 76,
+                ownType: "attempts"
+            },
+        },
+        {
+            id: "#AV391K",
+            title: "Analiza matematyczna",
+            categories: "Matematyka, sesja 2022",
+            lastUpdateDate: "13.02.2022",
+            averageScore: {
+                value: 34,
+                ownType: "average"
+            },
+            rating: {
+                value: 2.5,
+                ownType: "rating"
+            },
+            activeQuestions: {
+                value: 52,
+                ownType: "activeQuestions"
+            },
+            attempts: {
+                value: 76,
+                ownType: "attempts"
+            },
+        },
+        {
+            id: "#AV391K",
+            title: "Analiza matematyczna",
+            categories: "Matematyka, sesja 2022",
+            lastUpdateDate: "13.02.2022",
+            averageScore: {
+                value: 34,
+                ownType: "average"
+            },
+            rating: {
+                value: 2.5,
+                ownType: "rating"
+            },
+            activeQuestions: {
+                value: 52,
+                ownType: "activeQuestions"
+            },
+            attempts: {
+                value: 76,
+                ownType: "attempts"
             },
         }
     ]
@@ -165,10 +297,13 @@ const BrowseTab = () => {
     return (
         <div className="browse_tab_container">
             <SortByPanel data={sortByData()}/>
-            {gridData.map(data => (
-                <MainGridElement data={data} widths={"1fr 5fr 2fr 2fr"} isFirstId={true} idName={"id"}
-                                 elementToShow={4}/>
-            ))}
+            <div className="add_exam_list_container">
+                {gridData.map(data => (
+                    <MainGridElement data={data} widths={"1fr 5fr 2fr 2fr"} isFirstId={true} idName={"id"}
+                                     elementToShow={4}/>
+                ))}
+            </div>
+
         </div>
     );
 };
