@@ -1,8 +1,7 @@
 import React from 'react';
 import './browseTabStyle.scss';
 import SortByPanel from "../../common/sortByPanel/SortByPanel";
-import {Checkbox, FormControl, FormControlLabel, InputLabel, MenuItem, Select, TextField} from "@mui/material";
-import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
+import {FormControl, InputLabel, MenuItem, Select, TextField} from "@mui/material";
 import MainGridElement from "../../mainGridElement/MainGridElement";
 
 const BrowseTab = () => {
@@ -23,7 +22,6 @@ const BrowseTab = () => {
                             // value={age}
                             label="Age"
                             variant="standard"
-
                         >
                             <MenuItem value={10}>Rating</MenuItem>
                             <MenuItem value={20}>Last update</MenuItem>
@@ -35,14 +33,20 @@ const BrowseTab = () => {
                 (
                     <TextField id="outlined-basic" label="School" variant="standard" size="small" style={{
                         width: 160,
-                        marginRight: 50
-                    }}/>
+                        marginRight: 50,
+                        color: "red",
+                        borderColor: "red"
+                    }}
+                               sx={{input: {color: '#707070'}}}
+                    />
                 ),
                 (
                     <TextField id="outlined-basic" label="Category" variant="standard" size="small" style={{
                         width: 160,
                         marginRight: 50
-                    }}/>
+                    }}
+                               sx={{input: {color: '#707070'}}}
+                    />
                 )
             ]
 
@@ -299,7 +303,7 @@ const BrowseTab = () => {
             <SortByPanel data={sortByData()}/>
             <div className="add_exam_list_container">
                 {gridData.map(data => (
-                    <MainGridElement data={data} widths={"1fr 5fr 2fr 2fr"} isFirstId={true} idName={"id"}
+                    <MainGridElement data={data} widths={"1fr 6fr 3fr 2fr"} isFirstId={true} idName={"id"}
                                      elementToShow={4}/>
                 ))}
             </div>
