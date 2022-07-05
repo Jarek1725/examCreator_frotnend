@@ -4,6 +4,8 @@
   display: grid;
   grid-template-columns: 1fr;
   height: 100vh;
+  font-size: 15px;
+  font-weight: 300;
 }
 
 .navbar_logo {
@@ -14,7 +16,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 20vh;
+  height: 15vh;
 }
 
 .navbar_link_container {
@@ -30,9 +32,12 @@
     text-decoration: none;
     display: flex;
     span{
-      margin-top: 2px;
       margin-left: 20px;
     }
+  }
+
+  svg{
+    height: 19px;
   }
 }
 
@@ -41,13 +46,13 @@
     color: styleVariables.$mainColor;
   }
 
-  margin-top: 8vh;
+  margin-top: 10vh;
 }
 
 .navbar_link_element:last-of-type{
   position: relative;
-  margin-top: 8vh;
-  margin-bottom: 8vh;
+  margin-top: 12vh;
+  margin-bottom: 10vh;
 
   span{
     color:map-get(styleVariables.$secondaryColorPalette, "red")
