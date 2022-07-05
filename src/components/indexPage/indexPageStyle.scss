@@ -1,4 +1,8 @@
 .index_container{
   display: grid;
-  grid-template-columns: 15% 1fr 25%;
+  grid-template-columns: 15% 1fr 20%;
+}
+
+.index_mid_panel{
+  padding-left: 20px;
 }

@@ -1,0 +1,10 @@
+.filter_panel_container{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 5px 30px;
+  gap: 20px;
+}
+
+#demo-simple-select{
+  padding-left: 13px;
+}

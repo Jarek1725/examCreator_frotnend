@@ -1,0 +1,51 @@
+@use '../common/styleVariables';
+
+.main_grid_element_container{
+  height: 220px;
+  background: styleVariables.$lightBlueBgcColor;
+  margin-bottom: 15px;
+  border-radius: 20px;
+}
+
+.main_grid_element_container_top {
+  display: grid;
+  width: 100%;
+  overflow:auto;
+  height: 100px;
+}
+
+.single_grid_element_container{
+  padding: 10px 15px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  color:styleVariables.$mainTextColor;
+  display: flex;
+  align-items: center;
+}
+
+.main_grid_element {
+  margin-left: 10px;
+}
+
+.single_grid_element_container_id{
+  text-align: center;
+  padding: 7px 15px;
+  color:white;
+  font-size: 13px;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.single_grid_element_container_text{
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+}
+
+.main_grid_element_container_bottom{
+  display: grid;
+}
