@@ -7,5 +7,5 @@ $mainBorderRadius: 20px;
 
 $secondaryColorPalette: ("pink": #FFC5FB, "light_blue": #9FDEFD, "purple": #CCA7ED, "green": #C8EDA7, "blue": #82A4F7, "yellow": #FDDD9F, "red": #E38C9B);
 
-$breakpoints: ( small: 425px, medium: 768px, large: 1024px, x-large: 1440px ) !default;
+$breakpoints: ( "small": 425px, "phone":640px, "medium": 768px, "large": 1024px, "x-large": 1440px ) !default;
 

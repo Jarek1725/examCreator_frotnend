@@ -1,3 +1,5 @@
+@use '../../common/styleVariables';
+
 .filter_panel_container{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -17,4 +19,14 @@
   height: calc(100vh - 16vh - 8vh - 30px);
   display: grid;
   grid-template-columns: 5fr 2fr;
+}
+
+@media screen and (max-width:map-get(styleVariables.$breakpoints, "large")){
+  .browse_tab_your_history_panel{
+    display: none;
+  }
+  .browse_tab_divider{
+    grid-template-columns: 1fr;
+    margin-right: 20px;
+  }
 }

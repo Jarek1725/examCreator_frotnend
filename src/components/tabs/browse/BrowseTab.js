@@ -4,6 +4,7 @@ import SortByPanel from "../../common/sortByPanel/SortByPanel";
 import {FormControl, InputLabel, MenuItem, Select, TextField} from "@mui/material";
 import MainGridElement from "../../mainGridElement/MainGridElement";
 import BrowseRightPanel from "./rightPanel/BrowseRightPanel";
+import BrowseTabMainGridPanel from "./BrowseTabMainGridPanel";
 
 const BrowseTab = () => {
 
@@ -57,246 +58,59 @@ const BrowseTab = () => {
     const gridData = [
         {
             id: "#32FZ6H",
-            title: "Egzamin WIEIK z pierwszego semestru poprawkowy",
+            name: "Egzamin WIEIK z pierwszego semestru poprawkowy",
             categories: "Programowanie, Sesja 2021",
             lastUpdateDate: "03.07.2022",
-            averageScore: {
-                value: 75,
-                ownType: "average"
-            },
-            rating: {
-                value: 4,
-                ownType: "rating"
-            },
-            activeQuestions: {
-                value: 23,
-                ownType: "activeQuestions"
-            },
-            attempts: {
-                value: 23,
-                ownType: "attempts"
-            }
+            averageScore: 75,
+            rating: 4,
+            activeQuestions: 23,
+            attempts: 23
+        }, {
+            id: "#32FZ6H",
+            name: "Egzamin WIEIK z pierwszego semestru poprawkowy",
+            categories: "Programowanie, Sesja 2021",
+            lastUpdateDate: "03.07.2022",
+            averageScore: 75,
+            rating: 4,
+            activeQuestions: 23,
+            attempts: 23
+        }, {
+            id: "#32FZ6H",
+            name: "Egzamin WIEIK z pierwszego semestru poprawkowy",
+            categories: "Programowanie, Sesja 2021",
+            lastUpdateDate: "03.07.2022",
+            averageScore: 75,
+            rating: 4,
+            activeQuestions: 23,
+            attempts: 23
+        }, {
+            id: "#32FZ6H",
+            name: "Egzamin WIEIK z pierwszego semestru poprawkowy",
+            categories: "Programowanie, Sesja 2021",
+            lastUpdateDate: "03.07.2022",
+            averageScore: 75,
+            rating: 4,
+            activeQuestions: 23,
+            attempts: 23
+        }, {
+            id: "#32FZ6H",
+            name: "Egzamin WIEIK z pierwszego semestru poprawkowy",
+            categories: "Programowanie, Sesja 2021",
+            lastUpdateDate: "03.07.2022",
+            averageScore: 75,
+            rating: 4,
+            activeQuestions: 23,
+            attempts: 23
+        }, {
+            id: "#32FZ6H",
+            name: "Egzamin WIEIK z pierwszego semestru poprawkowy",
+            categories: "Programowanie, Sesja 2021",
+            lastUpdateDate: "03.07.2022",
+            averageScore: 75,
+            rating: 4,
+            activeQuestions: 23,
+            attempts: 23
         },
-        {
-            id: "#CR54A1",
-            title: "Bazy danych 06.2021",
-            categories: "Bazy danych, Sesja 2021",
-            lastUpdateDate: "14.06.2021",
-            averageScore: {
-                value: 32,
-                ownType: "average"
-            },
-            rating: {
-                value: 2.5,
-                ownType: "rating"
-            },
-            activeQuestions: {
-                value: 12,
-                ownType: "activeQuestions"
-            },
-            attempts: {
-                value: 44,
-                ownType: "attempts"
-            },
-        },
-        {
-            id: "#AV391K",
-            title: "Baza pytań PK WIEIK Architektura Systemów",
-            categories: "ASK, Sesja 2021",
-            lastUpdateDate: "17.06.2021",
-            averageScore: {
-                value: 98,
-                ownType: "average"
-            },
-            rating: {
-                value: 5,
-                ownType: "rating"
-            },
-            activeQuestions: {
-                value: 22,
-                ownType: "activeQuestions"
-            },
-            attempts: {
-                value: 76,
-                ownType: "attempts"
-            },
-        },
-        {
-            id: "#AV391K",
-            title: "Prawdopodobne pytania fizyka",
-            categories: "Fizyka, kolokwium zaliczeniowe",
-            lastUpdateDate: "17.01.2022",
-            averageScore: {
-                value: 54,
-                ownType: "average"
-            },
-            rating: {
-                value: 3.5,
-                ownType: "rating"
-            },
-            activeQuestions: {
-                value: 28,
-                ownType: "activeQuestions"
-            },
-            attempts: {
-                value: 13,
-                ownType: "attempts"
-            },
-        },
-        {
-            id: "#AV391K",
-            title: "Analiza matematyczna",
-            categories: "Matematyka, sesja 2022",
-            lastUpdateDate: "13.02.2022",
-            averageScore: {
-                value: 34,
-                ownType: "average"
-            },
-            rating: {
-                value: 2.5,
-                ownType: "rating"
-            },
-            activeQuestions: {
-                value: 52,
-                ownType: "activeQuestions"
-            },
-            attempts: {
-                value: 76,
-                ownType: "attempts"
-            },
-        },
-        {
-            id: "#AV391K",
-            title: "Analiza matematyczna",
-            categories: "Matematyka, sesja 2022",
-            lastUpdateDate: "13.02.2022",
-            averageScore: {
-                value: 34,
-                ownType: "average"
-            },
-            rating: {
-                value: 2.5,
-                ownType: "rating"
-            },
-            activeQuestions: {
-                value: 52,
-                ownType: "activeQuestions"
-            },
-            attempts: {
-                value: 76,
-                ownType: "attempts"
-            },
-        },
-        {
-            id: "#AV391K",
-            title: "Analiza matematyczna",
-            categories: "Matematyka, sesja 2022",
-            lastUpdateDate: "13.02.2022",
-            averageScore: {
-                value: 34,
-                ownType: "average"
-            },
-            rating: {
-                value: 2.5,
-                ownType: "rating"
-            },
-            activeQuestions: {
-                value: 52,
-                ownType: "activeQuestions"
-            },
-            attempts: {
-                value: 76,
-                ownType: "attempts"
-            },
-        },
-        {
-            id: "#AV391K",
-            title: "Analiza matematyczna",
-            categories: "Matematyka, sesja 2022",
-            lastUpdateDate: "13.02.2022",
-            averageScore: {
-                value: 34,
-                ownType: "average"
-            },
-            rating: {
-                value: 2.5,
-                ownType: "rating"
-            },
-            activeQuestions: {
-                value: 52,
-                ownType: "activeQuestions"
-            },
-            attempts: {
-                value: 76,
-                ownType: "attempts"
-            },
-        },
-        {
-            id: "#AV391K",
-            title: "Analiza matematyczna",
-            categories: "Matematyka, sesja 2022",
-            lastUpdateDate: "13.02.2022",
-            averageScore: {
-                value: 34,
-                ownType: "average"
-            },
-            rating: {
-                value: 2.5,
-                ownType: "rating"
-            },
-            activeQuestions: {
-                value: 52,
-                ownType: "activeQuestions"
-            },
-            attempts: {
-                value: 76,
-                ownType: "attempts"
-            },
-        },
-        {
-            id: "#AV391K",
-            title: "Analiza matematyczna",
-            categories: "Matematyka, sesja 2022",
-            lastUpdateDate: "13.02.2022",
-            averageScore: {
-                value: 34,
-                ownType: "average"
-            },
-            rating: {
-                value: 2.5,
-                ownType: "rating"
-            },
-            activeQuestions: {
-                value: 52,
-                ownType: "activeQuestions"
-            },
-            attempts: {
-                value: 76,
-                ownType: "attempts"
-            },
-        },
-        {
-            id: "#AV391K",
-            title: "Analiza matematyczna",
-            categories: "Matematyka, sesja 2022",
-            lastUpdateDate: "13.02.2022",
-            averageScore: {
-                value: 34,
-                ownType: "average"
-            },
-            rating: {
-                value: 2.5,
-                ownType: "rating"
-            },
-            activeQuestions: {
-                value: 52,
-                ownType: "activeQuestions"
-            },
-            attempts: {
-                value: 76,
-                ownType: "attempts"
-            },
-        }
     ]
 
     return (
@@ -305,8 +119,9 @@ const BrowseTab = () => {
             <div className="browse_tab_divider">
                 <div className="add_exam_list_container">
                     {gridData.map(data => (
-                        <MainGridElement data={data} widths={"1fr 6fr 3fr 2fr"} isFirstId={true} idName={"id"}
-                                         elementToShow={4}/>
+                        // <MainGridElement data={data} widths={"1fr 6fr 3fr 2fr"} isFirstId={true} idName={"id"}
+                        //                  elementToShow={4}/>
+                        <BrowseTabMainGridPanel data={data}/>
                     ))}
                 </div>
                 <div className="browse_tab_your_history_panel">

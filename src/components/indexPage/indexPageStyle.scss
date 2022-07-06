@@ -1,3 +1,5 @@
+@use '../common/styleVariables.scss';
+
 .index_container{
   display: grid;
   grid-template-columns: 15% 1fr;
@@ -5,4 +7,16 @@
 
 .index_mid_panel{
   padding-left: 20px;
+}
+
+
+@media screen and (max-width:map-get(styleVariables.$breakpoints, "medium")){
+
+  .navbar_container{
+    display: none !important;
+  }
+
+  .index_container {
+    grid-template-columns: 1fr;
+  }
 }
