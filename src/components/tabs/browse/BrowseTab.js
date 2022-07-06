@@ -3,6 +3,7 @@ import './browseTabStyle.scss';
 import SortByPanel from "../../common/sortByPanel/SortByPanel";
 import {FormControl, InputLabel, MenuItem, Select, TextField} from "@mui/material";
 import MainGridElement from "../../mainGridElement/MainGridElement";
+import BrowseRightPanel from "./rightPanel/BrowseRightPanel";
 
 const BrowseTab = () => {
 
@@ -74,7 +75,7 @@ const BrowseTab = () => {
             attempts: {
                 value: 23,
                 ownType: "attempts"
-            },
+            }
         },
         {
             id: "#CR54A1",
@@ -301,13 +302,17 @@ const BrowseTab = () => {
     return (
         <div className="browse_tab_container">
             <SortByPanel data={sortByData()}/>
-            <div className="add_exam_list_container">
-                {gridData.map(data => (
-                    <MainGridElement data={data} widths={"1fr 6fr 3fr 2fr"} isFirstId={true} idName={"id"}
-                                     elementToShow={4}/>
-                ))}
+            <div className="browse_tab_divider">
+                <div className="add_exam_list_container">
+                    {gridData.map(data => (
+                        <MainGridElement data={data} widths={"1fr 6fr 3fr 2fr"} isFirstId={true} idName={"id"}
+                                         elementToShow={4}/>
+                    ))}
+                </div>
+                <div className="browse_tab_your_history_panel">
+                    <BrowseRightPanel/>
+                </div>
             </div>
-
         </div>
     );
 };

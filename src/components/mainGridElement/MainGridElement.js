@@ -47,7 +47,7 @@ const MainGridElement = (props) => {
             }}>
                 {
                     Object.keys(props.data).map((key, index) => (
-                        index >= props.elementToShow ?
+                        index >= props.elementToShow && key!="idColor"?
                             (
                                 <div className="single_grid_element_container_bottom">
                                     <div className="single_grid_element_container_text">
@@ -79,7 +79,7 @@ const MainGridElement = (props) => {
                                                             <p style={{background:"#82A4F7", padding:"5px 13px", borderRadius:"7px", color:"white"}}>{props.data[key].value}</p>
                                                             <p className="single_grid_element_bottom_icons_text">Active questions</p>
                                                         </>)
-                                                    : ('')
+                                                    : null
                                                 }
                                             </div>
                                             :
@@ -87,7 +87,7 @@ const MainGridElement = (props) => {
                                         }
                                     </div>
                                 </div>
-                            ) : ('')
+                            ) : null
                     ))}
             </div>
         </div>

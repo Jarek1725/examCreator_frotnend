@@ -10,6 +10,11 @@
 }
 
 .add_exam_list_container{
-  height: calc(100vh - 16vh - 8vh - 30px);
   overflow: auto;
+}
+
+.browse_tab_divider{
+  height: calc(100vh - 16vh - 8vh - 30px);
+  display: grid;
+  grid-template-columns: 5fr 2fr;
 }

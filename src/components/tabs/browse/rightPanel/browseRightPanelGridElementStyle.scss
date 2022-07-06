@@ -1,0 +1,42 @@
+@use '../../../common/styleVariables';
+
+.browse_right_panel_grid_container{
+  background: white;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+.browse_right_panel_grid_categories, .browse_right_panel_grid_name{
+  width: 85%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.browse_right_panel_grid_categories{
+  font-size:11px
+}
+
+.browse_right_panel_grid_name{
+  font-size: 16px;
+  margin-top: 5px !important;
+  margin-bottom: 5px !important;
+}
+
+.browse_right_panel_grid_result_passed, .browse_right_panel_grid_result_failed{
+  font-size:11px;
+  color:white;
+  width: 50px;
+  text-align: center;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+.browse_right_panel_grid_result_passed{
+  background:map-get(styleVariables.$secondaryColorPalette, "green");
+}
+
+.browse_right_panel_grid_result_failed{
+  background:map-get(styleVariables.$secondaryColorPalette, "red");
+}
