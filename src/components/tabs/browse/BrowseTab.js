@@ -110,6 +110,33 @@ const BrowseTab = () => {
             rating: 4,
             activeQuestions: 23,
             attempts: 23
+        },{
+            id: "#32FZ6H",
+            name: "Egzamin WIEIK z pierwszego semestru poprawkowy",
+            categories: "Programowanie, Sesja 2021",
+            lastUpdateDate: "03.07.2022",
+            averageScore: 75,
+            rating: 4,
+            activeQuestions: 23,
+            attempts: 23
+        },{
+            id: "#32FZ6H",
+            name: "Egzamin WIEIK z pierwszego semestru poprawkowy",
+            categories: "Programowanie, Sesja 2021",
+            lastUpdateDate: "03.07.2022",
+            averageScore: 75,
+            rating: 4,
+            activeQuestions: 23,
+            attempts: 23
+        },{
+            id: "#32FZ6H",
+            name: "Egzamin WIEIK z pierwszego semestru poprawkowy",
+            categories: "Programowanie, Sesja 2021",
+            lastUpdateDate: "03.07.2022",
+            averageScore: 75,
+            rating: 4,
+            activeQuestions: 23,
+            attempts: 23
         },
     ]
 
