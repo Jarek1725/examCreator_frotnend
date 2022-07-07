@@ -23,7 +23,7 @@
 
 @media screen and (max-width:map-get(styleVariables.$breakpoints, "phone")){
   .index_mid_panel{
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: 0;
+    width: 100vw;
   }
 }

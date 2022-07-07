@@ -15,8 +15,18 @@ const theme = createTheme({
         }
     }
 })
+
+const meta = {
+    content:{
+        width:"device-width",
+        initialScale:1
+    }
+}
+
 root.render(
     <ThemeProvider theme={theme}>
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+
         <IndexPage/>
     </ThemeProvider>
 );

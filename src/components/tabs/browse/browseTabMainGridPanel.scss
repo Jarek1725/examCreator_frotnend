@@ -63,6 +63,7 @@
   align-items: center;
   text-align: center;
   margin: auto;
+  color: styleVariables.$mainTextColor;
 }
 
 .single_grid_element_bottom_icons_text {
@@ -75,14 +76,15 @@
   }
 
   .browse_tab_main_grid_panel_top_container {
-    grid-template-columns: repeat(5, 1fr);
-    height: 80px;
-    padding-top: 15px;
-    padding-bottom: 10px;
+    grid-template-columns: repeat(6, 1fr);
+    height: 45px;
+    padding-top: 9px;
+    padding-bottom: 9px;
   }
 
-  .browse_tab_main_grid_panel_date_text, .browse_tab_main_grid_panel_categories_text, .browse_tab_main_grid_panel_name_text, .browse_tab_main_grid_panel_id_text{
+  .browse_tab_main_grid_panel_date_text, .browse_tab_main_grid_panel_categories_text, .browse_tab_main_grid_panel_name_text, .browse_tab_main_grid_panel_id_text {
     margin: 0;
+    font-size: 0.7rem;
   }
 
   .browse_tab_main_grid_panel_id_container {
@@ -92,30 +94,60 @@
   }
 
   .browse_tab_main_grid_panel_name_container {
-    grid-column-end: 6;
+    grid-column-end: 7;
     grid-column-start: 2;
+    margin-left: 5px;
   }
 
-  .browse_tab_main_grid_panel_name_text{
+  .browse_tab_main_grid_panel_name_text {
     font-weight: 400;
-    font-size:24px;
-    text-align: left;
+    font-size: 0.9rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
   }
 
   .browse_tab_main_grid_panel_categories_container {
-    grid-column-end: 4;
+    grid-column-end: 5;
     grid-column-start: 2;
+    margin-left: 5px;
   }
   .browse_tab_main_grid_panel_date_container {
-    grid-column-end: 6;
-    grid-column-start: 4;
+    grid-column-end: 7;
+    grid-column-start: 5;
   }
 
-  .browse_tab_main_grid_panel_container{
-    height: 115px;
+  .browse_tab_main_grid_panel_container {
+    height: 64px;
   }
 
   .browse_tab_main_grid_panel_container:hover {
-    height: 240px;
+    height: 145px;
+  }
+
+  .browse_tab_main_grid_panel_id_text {
+    font-size: 8px;
+    padding: 5px 7px;
+    border-radius: 5px;
+  }
+
+  .browse_tab_main_grid_panel_bottom_data{
+    font-size: 0.7rem;
+    height: 40px;
+  }
+
+  .browse_tab_main_grid_panel_bottom_data_average_progress{
+    height: 25px !important;
+    width: 25px !important;
+  }
+
+  .browse_tab_main_grid_panel_bottom_data_rating_icon{
+    font-size: 18px !important;
+  }
+
+  .browse_tab_main_grid_panel_bottom_attempts{
+    padding: 3px 11px !important;
+    font-size: 0.7rem;
+    border-radius: 5px !important;
   }
 }
