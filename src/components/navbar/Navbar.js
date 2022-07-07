@@ -9,6 +9,9 @@ import AddIcon from '@mui/icons-material/Add';
 import PersonRoundedIcon from '@mui/icons-material/PersonRounded';
 import GradeRoundedIcon from '@mui/icons-material/GradeRounded';
 import ExitToAppRoundedIcon from '@mui/icons-material/ExitToAppRounded';
+import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
+import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
+
 
 const Navbar = () => {
 
@@ -16,29 +19,46 @@ const Navbar = () => {
         {
             text: "Browse",
             icon: <GridViewRoundedIcon/>,
-            link: "/"
+            link: "/",
+            onlyPhone: false
+        },
+        {
+            text: "Search",
+            icon: <SearchRoundedIcon/>,
+            link: "/search",
+            onlyPhone: true
         },
         {
             text: "Your exams",
             icon: <DonutSmallRoundedIcon/>,
-            link: "/created"
+            link: "/created",
+            onlyPhone: false
         },
         {
             text: "Create exam",
             icon: <AddIcon/>,
-            link: "/create"
+            link: "/create",
+            onlyPhone: false
         },
         {
             text: "Account",
             icon: <PersonRoundedIcon/>,
-            link: "/account"
+            link: "/account",
+            onlyPhone: false
         },
         {
             text: "Favourites",
             icon: <GradeRoundedIcon/>,
-            link: "/favourites"
+            link: "/favourites",
+            onlyPhone: false
         }
     ]
+
+    const closePopup = () => {
+        document.querySelectorAll('.navbar_container').forEach(e=>{
+            e.style.marginTop = "-100vh"
+        })
+    }
 
     return (
         <div className="navbar_container">
@@ -48,12 +68,22 @@ const Navbar = () => {
             <div className="navbar_link_container_to_vertical_align">
                 <div className="navbar_link_container">
                     {navbarLinks.map((link) => (
-                        <div className="navbar_link_element">
-                            <Link to={link.link}>{link.icon} <span>{link.text}</span></Link>
-                        </div>
+
+                        link.onlyPhone ?
+                            <div className="navbar_link_element navbar_link_element_only_phone">
+                                <Link to={link.link}>{link.icon} <span>{link.text}</span></Link>
+                            </div> :
+                            <div className="navbar_link_element">
+                                <Link to={link.link}>{link.icon} <span>{link.text}</span></Link>
+                            </div>
+
                     ))}
                     <div className="navbar_link_element">
-                        <Link to="/logout" classname="test"><ExitToAppRoundedIcon/> <span className="logout_button">Logout</span></Link>
+                        <div className="close_top_nav_container navbar_link_element_only_phone" onClick={()=>closePopup()}>
+                            <CloseRoundedIcon/><p>Close</p>
+                        </div>
+                            <Link to="/logout" classname="test"><ExitToAppRoundedIcon/> <span
+                            className="logout_button">Logout</span></Link>
                     </div>
                 </div>
             </div>

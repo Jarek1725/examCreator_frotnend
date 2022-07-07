@@ -1,7 +1,15 @@
+@use '../styleVariables';
+
 .sort_by_panel_container{
   display: flex;
   padding:15px 0;
   height: 6vh;
   grid-column-start: 1;
   grid-column-end: 3;
+}
+
+@media screen and (max-width: map-get(styleVariables.$breakpoints, "medium")) {
+  .sort_by_panel_container {
+    display: none;
+  }
 }

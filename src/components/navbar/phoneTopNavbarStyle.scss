@@ -1,0 +1,36 @@
+@use '../common/styleVariables';
+
+.phone_top_navbar_container{
+  display: none;
+  height: 90px;
+  width: 80%;
+  margin: auto;
+}
+
+.phone_top_navbar_container_right{
+  display: flex;
+  align-items: center;
+}
+
+.phone_top_navbar_container_left_text{
+  margin-right: 15px;
+  color: styleVariables.$mainColor;
+}
+
+.phone_top_navbar_container_right img{
+  height: 32px;
+}
+
+.phone_top_navbar_container_left{
+  color: styleVariables.$mainTextColor;
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (max-width: map-get(styleVariables.$breakpoints, "medium")) {
+  .phone_top_navbar_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
