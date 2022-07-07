@@ -34,7 +34,7 @@
 
 @media screen and (max-width: map-get(styleVariables.$breakpoints, "phone")) {
   .add_exam_list_container {
-    overflow: unset;
+    overflow: auto;
     margin:auto;
     text-align: center;
   }
