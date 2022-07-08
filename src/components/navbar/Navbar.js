@@ -54,8 +54,32 @@ const Navbar = () => {
         }
     ]
 
+
+    const getDataFromSpring = () => {
+        let headers = new Headers();
+
+        headers.append('Content-Type', 'application/json');
+        headers.append('Accept', 'application/json');
+        headers.append('Origin','*');
+        headers.append("Access-Control-Allow-Methods", "DELETE, POST, GET, OPTIONS")
+
+
+
+        fetch(
+            "https://examcreator-backend.herokuapp.com/api/v1/user/login", {
+                method:'POST',
+                mode: 'cors',
+                headers: headers,
+                credentials: "include"
+            }
+        ).then((res)=>res.json())
+            .then((data)=>{
+                console.log(data)
+            })
+    }
+
     const closePopup = () => {
-        document.querySelectorAll('.navbar_container').forEach(e=>{
+        document.querySelectorAll('.navbar_container').forEach(e => {
             e.style.marginTop = "-100vh"
         })
     }
@@ -79,11 +103,12 @@ const Navbar = () => {
 
                     ))}
                     <div className="navbar_link_element">
-                        <div className="close_top_nav_container navbar_link_element_only_phone" onClick={()=>closePopup()}>
+                        <div className="close_top_nav_container navbar_link_element_only_phone"
+                             onClick={() => closePopup()}>
                             <CloseRoundedIcon/><p>Close</p>
                         </div>
-                            <Link to="/logout" classname="test"><ExitToAppRoundedIcon/> <span
-                            className="logout_button">Logout</span></Link>
+                        <Link to="/logout" classname="test"><ExitToAppRoundedIcon/> <span
+                            className="logout_button" onClick={()=>getDataFromSpring()}>Logout</span></Link>
                     </div>
                 </div>
             </div>
