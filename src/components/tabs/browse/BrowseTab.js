@@ -5,8 +5,29 @@ import {FormControl, InputLabel, MenuItem, Select, TextField} from "@mui/materia
 import MainGridElement from "../../mainGridElement/MainGridElement";
 import BrowseRightPanel from "./rightPanel/BrowseRightPanel";
 import BrowseTabMainGridPanel from "./BrowseTabMainGridPanel";
+import {useQuery, gql} from "@apollo/client";
+
+const GET_APP_USERS = gql`
+    query{
+        getAllAppUser{
+            id
+            privateToken
+            publicToken
+            exams{
+                title
+            }
+        }
+    }
+`
 
 const BrowseTab = () => {
+
+    const {error, data, loading} = useQuery(GET_APP_USERS)
+
+    console.log(`Errors: ${error}`)
+    console.log(`Data: ${data}`)
+    console.log(data)
+    console.log(`Loading: ${loading}`)
 
     let sortByData = () => {
         return (

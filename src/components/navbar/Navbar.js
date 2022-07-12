@@ -58,24 +58,25 @@ const Navbar = () => {
     const getDataFromSpring = () => {
         let headers = new Headers();
 
-        headers.append('Content-Type', 'application/json');
-        headers.append('Accept', 'application/json');
-        headers.append('Origin','*');
+        headers.append('Content-Type', 'text/html');
+        headers.append('Accept', 'text/html');
+        headers.append('Origin', '*');
         headers.append("Access-Control-Allow-Methods", "DELETE, POST, GET, OPTIONS")
 
 
-
         fetch(
-            "https://examcreator-backend.herokuapp.com/api/v1/user/login", {
-                method:'POST',
+            "http://localhost:8080/api/v1/user/login", {
+                method: 'POST',
                 mode: 'cors',
                 headers: headers,
                 credentials: "include"
             }
-        ).then((res)=>res.json())
-            .then((data)=>{
-                console.log(data)
-            })
+        )
+            .then(res =>
+                res.text()
+                    .then(data => {
+                        console.log(data)
+                    }))
     }
 
     const closePopup = () => {
@@ -108,7 +109,7 @@ const Navbar = () => {
                             <CloseRoundedIcon/><p>Close</p>
                         </div>
                         <Link to="/logout" classname="test"><ExitToAppRoundedIcon/> <span
-                            className="logout_button" onClick={()=>getDataFromSpring()}>Logout</span></Link>
+                            className="logout_button" onClick={() => getDataFromSpring()}>Logout</span></Link>
                     </div>
                 </div>
             </div>
