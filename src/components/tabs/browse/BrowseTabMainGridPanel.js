@@ -19,7 +19,7 @@ const BrowseTabMainGridPanel = (props) => {
     }
 
     return (
-        <div className="browse_tab_main_grid_panel_container">
+        <div className="browse_tab_main_grid_panel_container" key={props.data.id}>
             <div className="browse_tab_main_grid_panel_top_container">
                 <div className="browse_tab_main_grid_panel_id_container">
                     <p className="browse_tab_main_grid_panel_id_text" style={{background: getRandomColor()}}>

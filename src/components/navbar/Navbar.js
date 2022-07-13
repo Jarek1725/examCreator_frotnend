@@ -93,12 +93,11 @@ const Navbar = () => {
             <div className="navbar_link_container_to_vertical_align">
                 <div className="navbar_link_container">
                     {navbarLinks.map((link) => (
-
                         link.onlyPhone ?
-                            <div className="navbar_link_element navbar_link_element_only_phone">
+                            <div className="navbar_link_element navbar_link_element_only_phone" key={link.text}>
                                 <Link to={link.link}>{link.icon} <span>{link.text}</span></Link>
                             </div> :
-                            <div className="navbar_link_element">
+                            <div className="navbar_link_element" key={link.text}>
                                 <Link to={link.link}>{link.icon} <span>{link.text}</span></Link>
                             </div>
 
@@ -108,7 +107,7 @@ const Navbar = () => {
                              onClick={() => closePopup()}>
                             <CloseRoundedIcon/><p>Close</p>
                         </div>
-                        <Link to="/logout" classname="test"><ExitToAppRoundedIcon/> <span
+                        <Link to="/logout" className="test"><ExitToAppRoundedIcon/> <span
                             className="logout_button" onClick={() => getDataFromSpring()}>Logout</span></Link>
                     </div>
                 </div>

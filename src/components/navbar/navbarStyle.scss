@@ -44,7 +44,7 @@
 }
 
 .close_top_nav_container{
-  display: flex !important;
+  display: flex;
   align-items: center;
   margin-bottom: 30px;
   color: styleVariables.$mainTextColor;
@@ -96,6 +96,6 @@
   }
 
   .navbar_link_element_only_phone{
-    display: block;
+    display: flex;
   }
 }

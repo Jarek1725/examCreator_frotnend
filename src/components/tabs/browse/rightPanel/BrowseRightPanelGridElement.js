@@ -5,7 +5,7 @@ const BrowseRightPanelGridElement = (props) => {
     return (
         <>
             {props.data.map(exam => (
-                <div className="browse_right_panel_grid_container">
+                <div className="browse_right_panel_grid_container" key={exam.id}>
                     <p className="browse_right_panel_grid_categories">{exam.categories}</p>
                     <p className="browse_right_panel_grid_name">{exam.name}</p>
                     {exam.result ?

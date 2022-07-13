@@ -5,23 +5,35 @@ import BrowseTab from "../tabs/browse/BrowseTab";
 import Navbar from "../navbar/Navbar";
 import SearchPanel from "../common/searchPanel/SearchPanel";
 import PhoneTopNavbar from "../navbar/PhoneTopNavbar";
+import LoginPage from "../loginPage/LoginPage";
 
 
 const IndexPage = () => {
+
+    let isPrivateToken = () => {
+        console.log("cookies")
+        console.log(document.cookie)
+        return false
+    }
+
     return (
         <>
-            <Router>
-                <div className="index_container">
-                    <Navbar/>
-                    <PhoneTopNavbar/>
-                    <div className="index_mid_panel">
-                        <SearchPanel/>
-                        <Routes>
-                            <Route exact path="/" element={<BrowseTab/>}/>
-                        </Routes>
+            {isPrivateToken() ?
+                <Router>
+                    <div className="index_container">
+                        <Navbar/>
+                        <PhoneTopNavbar/>
+                        <div className="index_mid_panel">
+                            <SearchPanel/>
+                            <Routes>
+                                <Route exact path="/" element={<BrowseTab/>}/>
+                            </Routes>
+                        </div>
                     </div>
-                </div>
-            </Router>
+                </Router>:
+                <LoginPage/>
+            }
+
         </>
     );
 };

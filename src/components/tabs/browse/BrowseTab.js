@@ -169,7 +169,7 @@ const BrowseTab = () => {
                     {gridData.map(data => (
                         // <MainGridElement data={data} widths={"1fr 6fr 3fr 2fr"} isFirstId={true} idName={"id"}
                         //                  elementToShow={4}/>
-                        <BrowseTabMainGridPanel data={data}/>
+                        <BrowseTabMainGridPanel data={data} key={data.id}/>
                     ))}
                 </div>
                 <div className="browse_tab_your_history_panel">

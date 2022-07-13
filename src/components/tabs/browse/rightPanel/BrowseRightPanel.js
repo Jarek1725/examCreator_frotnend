@@ -59,7 +59,7 @@ const BrowseRightPanel = () => {
                 <p>Your last exams</p>
                 {
                     historyData.map(e => (
-                        <div className="exam_by_day_container">
+                        <div className="exam_by_day_container" key={e.exams.title}>
                             <p>{e.date}</p>
                             <BrowseRightPanelGridElement data={e.exams}/>
                         </div>
