@@ -55,28 +55,9 @@ const Navbar = () => {
     ]
 
 
-    const getDataFromSpring = () => {
-        let headers = new Headers();
-
-        headers.append('Content-Type', 'text/html');
-        headers.append('Accept', 'text/html');
-        headers.append('Origin', '*');
-        headers.append("Access-Control-Allow-Methods", "DELETE, POST, GET, OPTIONS")
-
-
-        fetch(
-            "http://localhost:8080/api/v1/user/login", {
-                method: 'POST',
-                mode: 'cors',
-                headers: headers,
-                credentials: "include"
-            }
-        )
-            .then(res =>
-                res.text()
-                    .then(data => {
-                        console.log(data)
-                    }))
+    const handleLogout = () => {
+        document.cookie = "privateToken=";
+        window.location.reload(false);
     }
 
     const closePopup = () => {
@@ -108,7 +89,7 @@ const Navbar = () => {
                             <CloseRoundedIcon/><p>Close</p>
                         </div>
                         <Link to="/logout" className="test"><ExitToAppRoundedIcon/> <span
-                            className="logout_button" onClick={() => getDataFromSpring()}>Logout</span></Link>
+                            className="logout_button" onClick={() => handleLogout()}>Logout</span></Link>
                     </div>
                 </div>
             </div>

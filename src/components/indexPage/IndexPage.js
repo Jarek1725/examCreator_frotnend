@@ -42,7 +42,6 @@ const IndexPage = () => {
             } else {
                 setPrivateToken(true)
             }
-
             setIsPageLoading(false)
         })
     }, [])
