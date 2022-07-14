@@ -1,3 +1,5 @@
+@use '../common/styleVariables.scss';
+
 .login_page_container{
   height: 100vh;
   width: 100%;
@@ -37,4 +39,9 @@
   margin-top: 0;
   margin-bottom: 5px;
   transition: 0.3s;
+}
+
+.login_page_private_token_header{
+  margin: 0;
+  color:styleVariables.$mainColor;
 }

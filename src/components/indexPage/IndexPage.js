@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './indexPageStyle.scss'
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import BrowseTab from "../tabs/browse/BrowseTab";
@@ -6,19 +6,53 @@ import Navbar from "../navbar/Navbar";
 import SearchPanel from "../common/searchPanel/SearchPanel";
 import PhoneTopNavbar from "../navbar/PhoneTopNavbar";
 import LoginPage from "../loginPage/LoginPage";
+import {gql, useLazyQuery} from "@apollo/client";
+import {CircularProgress} from "@mui/material";
 
+
+const LOGIN = gql`
+    query Login($privateToken:String){
+        login(privateToken:$privateToken){
+            id
+            publicToken
+            exams{
+                title
+                id
+            }
+        }
+    }
+`
 
 const IndexPage = () => {
 
-    let isPrivateToken = () => {
-        console.log("cookies")
-        console.log(document.cookie)
-        return false
-    }
+    const [login, {error: loginError, data: loginData, loading: loginLoading}] = useLazyQuery(LOGIN)
+    const [isPageLoading, setIsPageLoading] = useState(true)
+    const [privateToken, setPrivateToken] = useState(false);
+
+    useEffect(() => {
+        let privateToken = document.cookie.match('(^|;)\\s*privateToken\\s*=\\s*([^;]+)')?.pop() || ''
+
+        login({
+            variables: {
+                privateToken
+            }
+        }).then(data => {
+            if (data.error) {
+                setPrivateToken(false)
+            } else {
+                setPrivateToken(true)
+            }
+
+            setIsPageLoading(false)
+        })
+    }, [])
+
+    if (isPageLoading) return <div className="login_page_container"><CircularProgress
+        color="secondary"/></div>
 
     return (
         <>
-            {isPrivateToken() ?
+            {privateToken ?
                 <Router>
                     <div className="index_container">
                         <Navbar/>
@@ -30,7 +64,7 @@ const IndexPage = () => {
                             </Routes>
                         </div>
                     </div>
-                </Router>:
+                </Router> :
                 <LoginPage/>
             }
 

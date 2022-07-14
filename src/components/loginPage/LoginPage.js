@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './loginPageStyle.scss'
 import {Alert, Button, CircularProgress, Snackbar, TextField} from "@mui/material";
 import {useQuery, gql, useLazyQuery, useMutation} from "@apollo/client";
@@ -24,21 +24,7 @@ const LOGIN = gql`
 
 const LoginPage = () => {
     const [privateToken, setPrivateToken] = useState('')
-
-    const [open, setOpen] = React.useState(false);
-
-    const handleClick = () => {
-        setOpen(true);
-    };
-
-    const handleClose = (event, reason) => {
-        if (reason === 'clickaway') {
-            return;
-        }
-
-        setOpen(false);
-    };
-
+    const [userLoggedIn, setUserLoggedIn] = useState(false)
 
     let handlePrivateTokenChange = (e) => {
         setPrivateToken(e)
@@ -63,22 +49,35 @@ const LoginPage = () => {
             }).then(data => {
                 if (data.error) {
                     document.querySelector("#login_page_error").style.opacity = 1
-                    setTimeout(function(){
+                    setTimeout(function () {
                         document.querySelector("#login_page_error").style.opacity = 0
                     }, 3000)
+                } else{
+                    document.cookie=`privateToken=${privateToken}; expires=${24 * 60 * 60 * 1000}`
+                    goToMainPage()
                 }
             })
 
         } else {
-            createAppUser()
+            createAppUser().then(data => {
+                if(!data.error){
+                    console.log(data)
+                    setPrivateToken(data.data.createAppUser)
+                    setUserLoggedIn(true)
+                    document.cookie=`privateToken=${data.data.createAppUser}; expires=${24 * 60 * 60 * 1000}`
+                }
+            })
         }
     }
 
+    let goToMainPage = () =>{
+        window.location.reload(false);
+    }
 
     if (createAppUserLoading || loginLoading) return <div className="login_page_container"><CircularProgress
         color="secondary"/></div>
 
-    return (
+    if (!userLoggedIn) return (
         <div className="login_page_container">
             <div className="login_page_input_text">
                 <p id="login_page_error">Cannot find user</p>
@@ -95,6 +94,22 @@ const LoginPage = () => {
             </div>
         </div>
     );
+
+    if(userLoggedIn) return (
+        <div className="login_page_container">
+            <div className="login_page_input_text">
+                <p id="login_page_error">Cannot find user</p>
+                <h1>Welcome</h1>
+                <p>Your <span style={{color: "#5B59B5"}}>private token</span> is listed below, please save it<br/>to login in future</p>
+                <h2 className="login_page_private_token_header">{privateToken}</h2>
+                <div className="login_page_button_container">
+                    <Button variant="text" className="login_page_save_button"
+                            onClick={() => goToMainPage()}>Next</Button>
+                </div>
+            </div>
+        </div>
+    )
+
 };
 
 export default LoginPage;
