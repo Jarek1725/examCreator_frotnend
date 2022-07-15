@@ -2,32 +2,10 @@ import React from 'react';
 import './browseTabStyle.scss';
 import SortByPanel from "../../common/sortByPanel/SortByPanel";
 import {FormControl, InputLabel, MenuItem, Select, TextField} from "@mui/material";
-import MainGridElement from "../../mainGridElement/MainGridElement";
 import BrowseRightPanel from "./rightPanel/BrowseRightPanel";
 import BrowseTabMainGridPanel from "./BrowseTabMainGridPanel";
-import {useQuery, gql} from "@apollo/client";
-
-const GET_APP_USERS = gql`
-    query{
-        getAllAppUser{
-            id
-            privateToken
-            publicToken
-            exams{
-                title
-            }
-        }
-    }
-`
 
 const BrowseTab = () => {
-
-    const {error, data, loading} = useQuery(GET_APP_USERS)
-
-    console.log(`Errors: ${error}`)
-    console.log(`Data: ${data}`)
-    console.log(data)
-    console.log(`Loading: ${loading}`)
 
     let sortByData = () => {
         return (
@@ -87,7 +65,7 @@ const BrowseTab = () => {
             activeQuestions: 23,
             attempts: 23
         }, {
-            id: "#32FZ6H",
+            id: "#32FZ6Z",
             name: "Egzamin WIEIK z pierwszego semestru poprawkowy",
             categories: "Programowanie, Sesja 2021",
             lastUpdateDate: "03.07.2022",
@@ -104,9 +82,11 @@ const BrowseTab = () => {
             <div className="browse_tab_divider">
                 <div className="add_exam_list_container">
                     {gridData.map(data => (
+                        <div key={data.id}>
+                            <BrowseTabMainGridPanel data={data} key={data.id}/>
+                        </div>
                         // <MainGridElement data={data} widths={"1fr 6fr 3fr 2fr"} isFirstId={true} idName={"id"}
                         //                  elementToShow={4}/>
-                        <BrowseTabMainGridPanel data={data} key={data.id}/>
                     ))}
                 </div>
                 <div className="browse_tab_your_history_panel">

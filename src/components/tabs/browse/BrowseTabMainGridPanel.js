@@ -1,6 +1,8 @@
 import React from 'react';
 import './browseTabMainGridPanel.scss'
 import {CircularProgress, Rating} from "@mui/material";
+import getAllExams from "../../graphQl/getAllExams";
+import {useLazyQuery, useQuery} from "@apollo/client";
 
 const BrowseTabMainGridPanel = (props) => {
 
@@ -17,6 +19,11 @@ const BrowseTabMainGridPanel = (props) => {
     const getRandomColor = () => {
         return backgroundsColors[Math.floor(Math.random() * backgroundsColors.length)]
     }
+
+    const {error: getExamsError, data: getExamsData, loading: getExamsLoading} = useQuery(getAllExams())
+
+    if (getExamsLoading) return <div className="browse_tab_loader_container"><CircularProgress
+        color="secondary"/></div>
 
     return (
         <div className="browse_tab_main_grid_panel_container" key={props.data.id}>
@@ -45,7 +52,8 @@ const BrowseTabMainGridPanel = (props) => {
             <div className="browse_tab_main_grid_panel_bottom_container">
                 <div
                     className="browse_tab_main_grid_panel_bottom_average_container browse_tab_main_grid_panel_bottom_data">
-                    <CircularProgress variant="determinate" value={props.data.averageScore} className="browse_tab_main_grid_panel_bottom_data_average_progress"/>
+                    <CircularProgress variant="determinate" value={props.data.averageScore}
+                                      className="browse_tab_main_grid_panel_bottom_data_average_progress"/>
                     <p className="browse_tab_main_grid_panel_bottom_average single_grid_element_bottom_icons_text">
                         {props.data.averageScore}% average score
                     </p>
@@ -54,7 +62,8 @@ const BrowseTabMainGridPanel = (props) => {
                     className="browse_tab_main_grid_panel_bottom_rating_container browse_tab_main_grid_panel_bottom_data">
                     <p className="browse_tab_main_grid_panel_bottom_rating">
                         <Rating name="half-rating" value={props.data.rating} readOnly precision={0.5}
-                                style={{color: "#5B59B5"}} className="browse_tab_main_grid_panel_bottom_data_rating_icon"/>
+                                style={{color: "#5B59B5"}}
+                                className="browse_tab_main_grid_panel_bottom_data_rating_icon"/>
                     </p>
                 </div>
                 <div

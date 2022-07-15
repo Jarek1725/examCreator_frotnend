@@ -31,8 +31,6 @@ const meta = {
 root.render(
     <ApolloProvider client={client}>
         <ThemeProvider theme={theme}>
-            <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
-
             <IndexPage/>
         </ThemeProvider>
     </ApolloProvider>
