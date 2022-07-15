@@ -1,9 +1,11 @@
 import React from 'react';
 import './browseTabStyle.scss';
 import SortByPanel from "../../common/sortByPanel/SortByPanel";
-import {FormControl, InputLabel, MenuItem, Select, TextField} from "@mui/material";
+import {CircularProgress, FormControl, InputLabel, MenuItem, Select, TextField} from "@mui/material";
 import BrowseRightPanel from "./rightPanel/BrowseRightPanel";
 import BrowseTabMainGridPanel from "./BrowseTabMainGridPanel";
+import {useQuery} from "@apollo/client";
+import getAllExams from "../../graphQl/getAllExams";
 
 const BrowseTab = () => {
 
@@ -76,18 +78,26 @@ const BrowseTab = () => {
         }
     ]
 
+    const {error: getExamsError, data: getExamsData, loading: getExamsLoading} = useQuery(getAllExams())
+
     return (
         <div className="browse_tab_container">
             <SortByPanel data={sortByData()}/>
             <div className="browse_tab_divider">
                 <div className="add_exam_list_container">
-                    {gridData.map(data => (
-                        <div key={data.id}>
-                            <BrowseTabMainGridPanel data={data} key={data.id}/>
-                        </div>
-                        // <MainGridElement data={data} widths={"1fr 6fr 3fr 2fr"} isFirstId={true} idName={"id"}
-                        //                  elementToShow={4}/>
-                    ))}
+                    {getExamsLoading ?
+                        <div className="browse_tab_loader_container"><CircularProgress
+                            color="secondary"/></div>
+                        :
+                        gridData.map(data => (
+                            <div key={data.id}>
+                                <BrowseTabMainGridPanel data={data} key={data.id}/>
+                            </div>
+                            // <MainGridElement data={data} widths={"1fr 6fr 3fr 2fr"} isFirstId={true} idName={"id"}
+                            //                  elementToShow={4}/>
+                        ))
+                    }
+
                 </div>
                 <div className="browse_tab_your_history_panel">
                     <BrowseRightPanel/>

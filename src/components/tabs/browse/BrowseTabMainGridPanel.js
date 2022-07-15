@@ -2,7 +2,7 @@ import React from 'react';
 import './browseTabMainGridPanel.scss'
 import {CircularProgress, Rating} from "@mui/material";
 import getAllExams from "../../graphQl/getAllExams";
-import {useLazyQuery, useQuery} from "@apollo/client";
+import {useQuery} from "@apollo/client";
 
 const BrowseTabMainGridPanel = (props) => {
 
@@ -20,10 +20,7 @@ const BrowseTabMainGridPanel = (props) => {
         return backgroundsColors[Math.floor(Math.random() * backgroundsColors.length)]
     }
 
-    const {error: getExamsError, data: getExamsData, loading: getExamsLoading} = useQuery(getAllExams())
 
-    if (getExamsLoading) return <div className="browse_tab_loader_container"><CircularProgress
-        color="secondary"/></div>
 
     return (
         <div className="browse_tab_main_grid_panel_container" key={props.data.id}>
