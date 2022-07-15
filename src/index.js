@@ -7,8 +7,7 @@ import {createTheme, ThemeProvider} from "@mui/material";
 import {ApolloClient, ApolloProvider, InMemoryCache} from "@apollo/client"
 
 const client = new ApolloClient({
-    uri: "http://localhost:8080/graphql",
-    // uri: "https://examcreator-backend.herokuapp.com/graphql",
+    uri: "https://examcreator-backend.herokuapp.com/graphql",
     cache: new InMemoryCache()
 })
 

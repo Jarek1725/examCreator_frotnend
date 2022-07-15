@@ -77,7 +77,7 @@ const MainGridElement = (props) => {
                                                 {props.data[key].ownType === 'attempts' ? (
                                                         <>
                                                             <p style={{background:"#82A4F7", padding:"5px 13px", borderRadius:"7px", color:"white"}}>{props.data[key].value}</p>
-                                                            <p className="single_grid_element_bottom_icons_text">Active questions</p>
+                                                            <p className="single_grid_element_bottom_icons_text">Attempts</p>
                                                         </>)
                                                     : null
                                                 }

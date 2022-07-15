@@ -75,7 +75,7 @@ const BrowseTabMainGridPanel = (props) => {
                         borderRadius: "7px",
                         color: "white"
                     }}>{props.data.activeQuestions}</p>
-                    <p className="single_grid_element_bottom_icons_text">Active questions</p>
+                    <p className="single_grid_element_bottom_icons_text">Attempts</p>
                 </div>
             </div>
         </div>
