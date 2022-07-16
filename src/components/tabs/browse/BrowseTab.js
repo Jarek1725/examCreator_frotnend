@@ -80,6 +80,7 @@ const BrowseTab = () => {
 
     const {error: getExamsError, data: getExamsData, loading: getExamsLoading} = useQuery(getAllExams())
 
+
     return (
         <div className="browse_tab_container">
             <SortByPanel data={sortByData()}/>
@@ -89,13 +90,15 @@ const BrowseTab = () => {
                         <div className="browse_tab_loader_container"><CircularProgress
                             color="secondary"/></div>
                         :
-                        gridData.map(data => (
-                            <div key={data.id}>
-                                <BrowseTabMainGridPanel data={data} key={data.id}/>
-                            </div>
-                            // <MainGridElement data={data} widths={"1fr 6fr 3fr 2fr"} isFirstId={true} idName={"id"}
-                            //                  elementToShow={4}/>
-                        ))
+                        (
+                            getExamsData.getExams.map(data => (
+                                <div key={data.id}>
+                                    <BrowseTabMainGridPanel data={data} key={data.id}/>
+                                </div>
+                                // <MainGridElement data={data} widths={"1fr 6fr 3fr 2fr"} isFirstId={true} idName={"id"}
+                                //                  elementToShow={4}/>
+                            ))
+                        )
                     }
 
                 </div>

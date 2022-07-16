@@ -1,5 +1,5 @@
 import React from 'react';
-import {gql, useLazyQuery, useQuery} from "@apollo/client";
+import {gql} from "@apollo/client";
 
 
 const GetAllExams = () => {
@@ -10,6 +10,9 @@ const GetAllExams = () => {
                 title
                 createDate
                 averageScore
+                publicId
+                colorValue
+                averageExamRating
                 examRatings{
                     id
                     appUser{
@@ -21,6 +24,9 @@ const GetAllExams = () => {
                 }
                 categories{
                     value
+                }
+                attempts{
+                    score
                 }
             }
         }
