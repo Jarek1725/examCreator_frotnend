@@ -9,6 +9,7 @@ const GET_EXAM_ATTEMPTS = gql`
             exam{
                 maxPoints
                 title
+                percentToPass
                 categories{
                     value
                 }

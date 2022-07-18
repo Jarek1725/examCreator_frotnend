@@ -68,7 +68,9 @@ const BrowseRightPanel = () => {
             (rv[x["createDate"]] = rv[x["createDate"]] || []).push(x);
             return rv;
         }, {});
-        console.log(groupedData)
+        Object.keys(groupedData).forEach(e=>(
+            console.log(groupedData[e])
+        ))
     }
 
     if(loading) return <p>test</p>
@@ -78,11 +80,10 @@ const BrowseRightPanel = () => {
             <div className="browse_right_panel_header_container">
                 <p>Your last exams</p>
                 {
-                    attemptData.examAttempts.map(e => (
+                        Object.keys(groupedData).map(e=>(
                             <div className="exam_by_day_container" key={e.date}>
-                                <p>{e.createDate}</p>
-
-                                {/*<BrowseRightPanelGridElement data={e.exams}/>*/}
+                                <p>{e}</p>
+                                <BrowseRightPanelGridElement data={groupedData[e]}/>
                             </div>
                     ))
                     // historyData.map(e => (
