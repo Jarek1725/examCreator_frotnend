@@ -91,7 +91,7 @@ const BrowseTab = () => {
                             color="secondary"/></div>
                         :
                         (
-                            getExamsData.getExams.map(data => (
+                            getExamsData.exams.map(data => (
                                 <div key={data.id}>
                                     <BrowseTabMainGridPanel data={data} key={data.id}/>
                                 </div>

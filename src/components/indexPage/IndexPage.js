@@ -13,12 +13,7 @@ import {CircularProgress} from "@mui/material";
 const LOGIN = gql`
     query Login($privateToken:String){
         login(privateToken:$privateToken){
-            id
             publicToken
-            exams{
-                title
-                id
-            }
         }
     }
 `
@@ -36,10 +31,11 @@ const IndexPage = () => {
             variables: {
                 privateToken
             }
-        }).then(data => {
-            if (data.error) {
+        }).then(res => {
+            if (res.error) {
                 setPrivateToken(false)
             } else {
+                document.cookie=`publicToken=${res.data.login.publicToken}; expires=${24 * 60 * 60 * 1000}`
                 setPrivateToken(true)
             }
             setIsPageLoading(false)

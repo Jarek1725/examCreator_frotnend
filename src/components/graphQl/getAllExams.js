@@ -5,7 +5,7 @@ import {gql} from "@apollo/client";
 const GetAllExams = () => {
     return (gql`
         query {
-            getExams{
+            exams{
                 id
                 title
                 createDate
