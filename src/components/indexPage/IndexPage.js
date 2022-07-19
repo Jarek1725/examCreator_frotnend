@@ -8,6 +8,7 @@ import PhoneTopNavbar from "../navbar/PhoneTopNavbar";
 import LoginPage from "../loginPage/LoginPage";
 import {gql, useLazyQuery} from "@apollo/client";
 import {CircularProgress} from "@mui/material";
+import StartExam from "../tabs/startExam/StartExam";
 
 
 const LOGIN = gql`
@@ -56,6 +57,7 @@ const IndexPage = () => {
                             <SearchPanel/>
                             <Routes>
                                 <Route exact path="/" element={<BrowseTab/>}/>
+                                <Route path="/exams/:id" element={<StartExam/>}/>
                             </Routes>
                         </div>
                     </div>

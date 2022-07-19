@@ -35,7 +35,7 @@ const Navbar = () => {
             onlyPhone: false
         },
         {
-            text: "Create exam",
+            text: "Create startExam",
             icon: <AddIcon/>,
             link: "/create",
             onlyPhone: false
