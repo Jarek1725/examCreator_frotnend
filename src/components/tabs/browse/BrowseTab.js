@@ -1,14 +1,44 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './browseTabStyle.scss';
 import SortByPanel from "../../common/sortByPanel/SortByPanel";
 import {CircularProgress, FormControl, InputLabel, MenuItem, Select, TextField} from "@mui/material";
 import BrowseRightPanel from "./rightPanel/BrowseRightPanel";
 import BrowseTabMainGridPanel from "./BrowseTabMainGridPanel";
-import {useQuery} from "@apollo/client";
+import {gql, useLazyQuery, useQuery} from "@apollo/client";
 import getAllExams from "../../graphQl/getAllExams";
 
-const BrowseTab = () => {
 
+const GET_EXAMS = (gql`
+    query Exams($category:String, $school:String, $sortBy:String){
+        exams(filter:{category:$category, school:$school}, sortBy:$sortBy){
+            id
+            title
+            createDate
+            averageScore
+            publicId
+            colorValue
+            averageExamRating
+            examRatings{
+                id
+                appUser{
+                    id
+                }
+            }
+            questions {
+                isHidden
+            }
+            categories{
+                value
+            }
+            attempts{
+                score
+            }
+        }
+    }
+`)
+
+
+const BrowseTab = () => {
     let sortByData = () => {
         return (
             [
@@ -22,13 +52,14 @@ const BrowseTab = () => {
                         <Select
                             labelId="demo-simple-select-label"
                             id="demo-simple-select"
-                            // value={age}
+                            onChange={(e) => setSortBy(e.target.value)}
                             label="Age"
                             variant="standard"
                         >
-                            <MenuItem value={10}>Rating</MenuItem>
-                            <MenuItem value={20}>Last update</MenuItem>
-                            <MenuItem value={30}>Most attempts</MenuItem>
+                            <MenuItem value={"1"}>Title</MenuItem>
+                            <MenuItem value={"2"}>Most attempts</MenuItem>
+                            <MenuItem value={"3"}>Rating</MenuItem>
+                            <MenuItem value={"4"}>Last update</MenuItem>
                         </Select>
                     </FormControl>
                 ),
@@ -41,6 +72,7 @@ const BrowseTab = () => {
                         borderColor: "red"
                     }}
                                sx={{input: {color: '#707070'}}}
+                               onChange={(e) => setSchool(e.target.value)}
                     />
                 ),
                 (
@@ -49,6 +81,7 @@ const BrowseTab = () => {
                         marginRight: 50
                     }}
                                sx={{input: {color: '#707070'}}}
+                               onChange={(e) => setCategory(e.target.value)}
                     />
                 )
             ]
@@ -56,30 +89,23 @@ const BrowseTab = () => {
         );
     }
 
-    const gridData = [
-        {
-            id: "#32FZ6H",
-            name: "Egzamin WIEIK z pierwszego semestru poprawkowy",
-            categories: "Programowanie, Sesja 2021",
-            lastUpdateDate: "03.07.2022",
-            averageScore: 75,
-            rating: 4,
-            activeQuestions: 23,
-            attempts: 23
-        }, {
-            id: "#32FZ6Z",
-            name: "Egzamin WIEIK z pierwszego semestru poprawkowy",
-            categories: "Programowanie, Sesja 2021",
-            lastUpdateDate: "03.07.2022",
-            averageScore: 75,
-            rating: 4,
-            activeQuestions: 23,
-            attempts: 23
+    const [category, setCategory] = useState(null)
+    const [school, setSchool] = useState(null)
+    const [sortBy, setSortBy] = useState(null)
+
+
+    const {
+        error: getExamsError,
+        data: getExamsData,
+        loading: getExamsLoading,
+        refetch: getExamsRefetch
+    } = useQuery(getAllExams(), {
+        variables: {
+            category,
+            school,
+            sortBy
         }
-    ]
-
-    const {error: getExamsError, data: getExamsData, loading: getExamsLoading} = useQuery(getAllExams())
-
+    })
 
     return (
         <div className="browse_tab_container">

@@ -27,7 +27,6 @@ const GetUserLastExams = (examId, publicToken) => {
     })
 
     return {data, error, loading}
-
 };
 
 export default GetUserLastExams;
