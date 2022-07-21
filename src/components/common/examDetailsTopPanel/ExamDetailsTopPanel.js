@@ -13,7 +13,7 @@ const ExamDetailsTopPanel = () => {
                 <p>Go back</p>
             </div>
             <div className="details_top_panel_exam_name">
-                <h2>Podstawy programowania</h2>
+                <h2>Podstawy programowania </h2>
             </div>
         </div>
     );

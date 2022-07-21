@@ -1,9 +1,9 @@
 @use '../../common/styleVariables';
 
-.start_exam_category_container{
+.start_exam_category_container, .rules_container{
   p{
     color:styleVariables.$darkTextColor;
-    font-weight: 600;
+    font-weight: 400;
     margin: 7px 0;
   }
 }
@@ -17,8 +17,42 @@
   white-space: nowrap;
   overflow: hidden;
   margin: 0;
+  p{
+    color: styleVariables.$mainTextColor;
+  }
 }
 
 .start_exam_container{
+}
+
+.start_exam_bottom_container{
   height: 80vh;
+
+  display: grid;
+  grid-template-columns: 5fr 2fr;
+}
+
+.rules_container{
+  margin-top: 10px;
+  .exam_rule{
+    color: styleVariables.$darkTextColor;
+    font-weight: 600;
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+}
+
+.start_exam_right_panel_container{
+  font-size: 24px;
+  padding: 15px 25px;
+  color: #353651;
+  overflow: auto;
+  height: calc(73vh - 30px);
+}
+
+.start_exam_right_panel_your_last_exams{
+  background-color: styleVariables.$lightBlueBgcColor;
+  height: 100%;
+  width: 100%;
+  border-radius: 25px;
 }
