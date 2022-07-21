@@ -6,7 +6,7 @@ import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 const SearchPanel = () => {
     return (
         <div className="search_panel_container">
-            <TextField id="outlined-basic" label="Search" variant="standard" size="small"
+            <TextField id="outlined-basic" label="Search" variant="outlined" size="small"
              InputProps={{
                  endAdornment: <SearchRoundedIcon/>
              }}

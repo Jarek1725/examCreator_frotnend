@@ -1,0 +1,24 @@
+@use '../../common/styleVariables';
+
+.start_exam_category_container{
+  p{
+    color:styleVariables.$darkTextColor;
+    font-weight: 600;
+    margin: 7px 0;
+  }
+}
+
+.start_exam_categories_background{
+  display: flex;
+  background-color: styleVariables.$lightBlueBgcColor;
+  padding: 7px 15px;
+  border-radius: 15px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  margin: 0;
+}
+
+.start_exam_container{
+  height: 80vh;
+}

@@ -15,17 +15,11 @@ const BrowseTabMainGridPanel = (props) => {
         "#E38C9B"
     ]
 
-    const getRandomColor = () => {
-        console.log(props.data)
-        return backgroundsColors[Math.floor(Math.random() * backgroundsColors.length)]
-    }
-
     const navigate = useNavigate();
-    const handleNavigate = useCallback((e) => navigate(`/exams/${e}`, {replace: true}), [navigate]);
 
 
     return (
-        <div className="browse_tab_main_grid_panel_container" key={props.id} onClick={()=>handleNavigate(props.data.publicId)}>
+        <div className="browse_tab_main_grid_panel_container" key={props.id} onClick={()=>navigate(`/exams/${props.data.publicId}`)}>
             <div className="browse_tab_main_grid_panel_top_container">
                 <div className="browse_tab_main_grid_panel_id_container">
                     <p className="browse_tab_main_grid_panel_id_text" style={{background: backgroundsColors[props.data.colorValue]}}

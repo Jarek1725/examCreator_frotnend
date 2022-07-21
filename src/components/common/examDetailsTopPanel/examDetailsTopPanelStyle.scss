@@ -1,0 +1,22 @@
+@use '../styleVariables';
+
+.details_top_panel_go_back_container{
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: styleVariables.$mainTextColor;
+  padding-top: 15px;
+  padding-bottom: 5px;
+
+  p{
+    margin:0 0 0 10px;
+  }
+}
+
+.details_top_panel_exam_name{
+  h2{
+    color: styleVariables.$darkTextColor;
+    font-size: 2.5em;
+    margin: 0 0 10px;
+  }
+}
