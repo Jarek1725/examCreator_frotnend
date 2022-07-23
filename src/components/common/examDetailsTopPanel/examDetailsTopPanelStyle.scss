@@ -16,7 +16,11 @@
 .details_top_panel_exam_name{
   h2{
     color: styleVariables.$darkTextColor;
-    font-size: 2.5rem;
+    font-size: 2.1rem;
     margin: 0 0 10px;
   }
+}
+
+.details_top_panel_container{
+  height: 98px;
 }

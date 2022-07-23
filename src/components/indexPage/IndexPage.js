@@ -9,6 +9,7 @@ import LoginPage from "../loginPage/LoginPage";
 import {gql, useLazyQuery} from "@apollo/client";
 import {CircularProgress} from "@mui/material";
 import StartExam from "../tabs/startExam/StartExam";
+import AttemptExam from "../tabs/attemptExam/AttemptExam";
 
 
 const LOGIN = gql`
@@ -24,6 +25,7 @@ const IndexPage = () => {
     const [login, {error: loginError, data: loginData, loading: loginLoading}] = useLazyQuery(LOGIN)
     const [isPageLoading, setIsPageLoading] = useState(true)
     const [privateToken, setPrivateToken] = useState(false);
+
 
     useEffect(() => {
         let privateToken = document.cookie.match('(^|;)\\s*privateToken\\s*=\\s*([^;]+)')?.pop() || ''
@@ -46,6 +48,8 @@ const IndexPage = () => {
     if (isPageLoading) return <div className="login_page_container"><CircularProgress
         color="secondary"/></div>
 
+
+
     return (
         <>
             {privateToken ?
@@ -58,6 +62,7 @@ const IndexPage = () => {
                             <Routes>
                                 <Route exact path="/" element={<BrowseTab/>}/>
                                 <Route path="/exams/:id" element={<StartExam/>}/>
+                                <Route path="/exams/:id/attempt" element={<AttemptExam/>}/>
                             </Routes>
                         </div>
                     </div>

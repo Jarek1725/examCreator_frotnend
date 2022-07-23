@@ -23,36 +23,55 @@
 }
 
 .start_exam_container{
+  height: 80vh;
+  display: grid;
+  grid-template-columns: 5fr 2fr;
 }
 
 .start_exam_bottom_container{
-  height: 80vh;
 
-  display: grid;
-  grid-template-columns: 5fr 2fr;
 }
 
 .rules_container{
   margin-top: 10px;
   .exam_rule{
     color: styleVariables.$darkTextColor;
-    font-weight: 600;
-    font-size: 22px;
+    font-weight: 700;
+    font-size: 19px;
     margin-bottom: 20px;
   }
 }
 
 .start_exam_right_panel_container{
-  font-size: 24px;
-  padding: 15px 25px;
+  padding: 25px;
   color: #353651;
   overflow: auto;
-  height: calc(73vh - 30px);
+  height: 100%;
 }
 
 .start_exam_right_panel_your_last_exams{
   background-color: styleVariables.$lightBlueBgcColor;
-  height: 100%;
+  height: calc(80vh - 76px);
+  margin-top: 70px;
   width: 100%;
   border-radius: 25px;
+  h2{
+    font-size: 24px;
+    font-weight: 600;
+  }
+  position: relative;
+}
+
+.start_exam_right_panel_your_attempts_container{
+  padding: 15px 25px;
+  h2{
+    margin: 0;
+  }
+}
+
+.start_exam_button{
+  position: absolute;
+  bottom:25px;
+  width: 100%;
+  text-align: center;
 }
