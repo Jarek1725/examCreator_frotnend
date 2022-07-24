@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import './browseTabStyle.scss';
 import SortByPanel from "../../common/sortByPanel/SortByPanel";
-import {CircularProgress, FormControl, InputLabel, MenuItem, Select, TextField} from "@mui/material";
+import {Button, CircularProgress, FormControl, InputLabel, MenuItem, Select, TextField} from "@mui/material";
 import BrowseRightPanel from "./rightPanel/BrowseRightPanel";
 import BrowseTabMainGridPanel from "./BrowseTabMainGridPanel";
 import {gql, useLazyQuery, useQuery} from "@apollo/client";
@@ -83,7 +83,14 @@ const BrowseTab = () => {
                                sx={{input: {color: '#707070'}}}
                                onChange={(e) => setCategory(e.target.value)}
                     />
-                )
+                ),
+                (<Button variant="outlined"  style={{maxHeight: '30px',  minHeight: '30px'}} onClick={() => getAllExamsFetch({
+                    variables: {
+                        category,
+                        school,
+                        sortBy
+                    }
+                })}>Filter</Button>)
             ]
 
         );
@@ -93,37 +100,36 @@ const BrowseTab = () => {
     const [school, setSchool] = useState(null)
     const [sortBy, setSortBy] = useState(null)
 
+    const [getAllExamsFetch, {data: examsData, loading: examsLoading}] = useLazyQuery(getAllExams())
 
-    const {
-        error: getExamsError,
-        data: getExamsData,
-        loading: getExamsLoading,
-        refetch: getExamsRefetch
-    } = useQuery(getAllExams(), {
-        variables: {
-            category,
-            school,
-            sortBy
-        }
-    })
+    useEffect(() => {
+        getAllExamsFetch({
+            variables: {
+                category,
+                school,
+                sortBy
+            }
+        })
+    }, [])
 
     return (
         <div className="browse_tab_container">
-            <SortByPanel data={sortByData()}/>
+            <SortByPanel data={sortByData()} getAllExamsFetch={getAllExamsFetch}/>
             <div className="browse_tab_divider">
                 <div className="add_exam_list_container">
-                    {getExamsLoading ?
+                    {examsLoading ?
                         <div className="browse_tab_loader_container"><CircularProgress
                             color="secondary"/></div>
                         :
                         (
-                            getExamsData.exams.map(data => (
-                                <div key={data.id}>
-                                    <BrowseTabMainGridPanel data={data} key={data.id}/>
-                                </div>
-                                // <MainGridElement data={data} widths={"1fr 6fr 3fr 2fr"} isFirstId={true} idName={"id"}
-                                //                  elementToShow={4}/>
-                            ))
+                            examsData ?
+                                examsData.exams.map(data => (
+                                    <div key={data.id}>
+                                        <BrowseTabMainGridPanel data={data} key={data.id}/>
+                                    </div>
+                                    // <MainGridElement data={data} widths={"1fr 6fr 3fr 2fr"} isFirstId={true} idName={"id"}
+                                    //                  elementToShow={4}/>
+                                )) : ''
                         )
                     }
 

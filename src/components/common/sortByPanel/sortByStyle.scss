@@ -3,7 +3,9 @@
 .sort_by_panel_container{
   display: flex;
   padding:15px 0;
-  height: 6vh;
+  align-items: flex-end;
+  height: 5vh;
+  margin-bottom: 1vh;
   grid-column-start: 1;
   grid-column-end: 3;
 }

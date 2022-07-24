@@ -8,9 +8,12 @@ const AttemptExam = (props) => {
     const Navigate = useNavigate();
 
     useEffect(() => {
-        console.log("state")
         if(state === null) {
             Navigate('/');
+        } else{
+            document.querySelector('.navbar_container').style.display = 'none'
+            document.querySelector('.index_container').style.display = 'flex'
+            document.querySelector('.search_panel_container').style.display = 'none'
         }
     }, [])
 
@@ -18,10 +21,9 @@ const AttemptExam = (props) => {
 
     const {isExamActive} = state;
 
-
     if(isExamActive) return (
-        <div>
-            test
+        <div className="exam_attempt_container">
+            Podstawy programowania
         </div>
     );
 };
