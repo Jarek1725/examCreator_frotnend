@@ -9,6 +9,9 @@ const GetExamDetails = () => {
                     categories{
                         value
                     }
+                    questions{
+                        id
+                    }
                 }
             }
         `

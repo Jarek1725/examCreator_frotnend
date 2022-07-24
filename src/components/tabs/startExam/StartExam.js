@@ -35,7 +35,7 @@ const StartExam = (props) => {
         return (
             <div className="start_exam_container">
                 <div>
-                    <ExamDetailsTopPanel/>
+                    <ExamDetailsTopPanel examTitle={getExamData.exam.title}/>
                     <div className="start_exam_bottom_container">
                         <div className="start_exam_category_container">
                             <p>Categories</p>
@@ -53,7 +53,7 @@ const StartExam = (props) => {
                             </div>
                             <div className="rules_container">
                                 <p>Rules</p>
-                                <p className="exam_rule">Exam has 32 active questions.</p>
+                                <p className="exam_rule">Exam has {getExamData.exam.questions.length} active questions.</p>
                                 <p className="exam_rule">Please make sure you select the appropriate answer.</p>
                                 <p className="exam_rule">After confirming your answer, you will not be able to go back
                                     to

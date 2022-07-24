@@ -3,7 +3,7 @@ import './examDetailsTopPanelStyle.scss'
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import {useNavigate} from "react-router-dom";
 
-const ExamDetailsTopPanel = () => {
+const ExamDetailsTopPanel = (props) => {
     const navigate = useNavigate();
 
     return (
@@ -13,7 +13,7 @@ const ExamDetailsTopPanel = () => {
                 <p>Go back</p>
             </div>
             <div className="details_top_panel_exam_name">
-                <h2>Podstawy programowania </h2>
+                <h2>{props.examTitle} </h2>
             </div>
         </div>
     );
