@@ -1,6 +1,33 @@
 .exam_attempt_container{
   width: 100%;
-  height: 90vh;
-  margin-top: 5vh;
-  background: red;
+  height: 70vh;
+  margin-top: 12vh;
+}
+
+.exam_attempt_category_container{
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
+.exam_question_title{
+  width: 100%;
+  font-size: 2rem;
+  margin: 22px 0;
+}
+
+.exam_answers{
+  p{
+    font-weight: 300;
+    font-family: 'Nunito', 'sans-serif';
+    margin: 12px 5px;
+  }
+}
+
+.exam_action_buttons{
+  position: absolute;
+  bottom:10vh;
+}
+
+.exam_action_button{
+  margin-right: 20px !important;
 }
