@@ -11,6 +11,7 @@ const StartAttempt = () => {
                     title
                 }
                 answers{
+                    id
                     value
                 }
             }

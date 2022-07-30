@@ -1,7 +1,8 @@
 .exam_attempt_container{
-  width: 100%;
+  width:calc(100% - 10vw);
   height: 70vh;
-  margin-top: 12vh;
+  padding: 0 5vw;
+  margin: 12vh auto auto;
 }
 
 .exam_attempt_category_container{
@@ -25,7 +26,7 @@
 
 .exam_action_buttons{
   position: absolute;
-  bottom:10vh;
+  bottom:12vh;
 }
 
 .exam_action_button{
