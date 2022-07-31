@@ -82,7 +82,7 @@ const AttemptQuestion = (props) => {
                         <Button variant="contained" className="exam_action_button" onClick={() => handleNextQuestion()}>Next
                             question</Button>
                         <Button variant="outlined" className="exam_action_button"
-                                onClick={() => console.log(props.selectedCheckboxes)}
+                                onClick={() => console.log(props.useranswers)}
                                 style={{borderColor: "#f44336", color: "#f44336"}}>End attempt</Button>
                     </div>
                 </div>

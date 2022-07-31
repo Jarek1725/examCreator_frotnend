@@ -48,10 +48,12 @@ const AttemptExam = (props) => {
         }
     }, [attemptLoading])
 
+    const [back, setBack] = useState(false)
 
     const nextQuestion = (selectedValues) => {
-        if (userAnswers.length >= currentQuestionId) {
-            console.log("Added")
+
+        if (!back && userAnswers.length == currentQuestionId || back && userAnswers.length == currentQuestionId + 1) {
+            // alert("Added")
             setUserAnswers((prevValues) => {
                 return [...prevValues, {
                     questionId: attemptData.startAttempt[currentQuestionId].id,
@@ -59,19 +61,33 @@ const AttemptExam = (props) => {
                 }]
             })
 
-            setSelectedCheckboxes([])
-            attemptData.startAttempt[currentQuestionId + 1].answers.forEach(e => {
-                setSelectedCheckboxes((prevValues) => {
-                    return [...prevValues, {
-                        answerId: e.id,
-                        checked: false
-                    }]
-                })
-            })
-        }
-        if (userAnswers[currentQuestionId + 1] != undefined) {
-            setSelectedCheckboxes([])
+            if (currentQuestionId+1 != attemptData.startAttempt.length) {
 
+                setSelectedCheckboxes([])
+                attemptData.startAttempt[currentQuestionId + 1].answers.forEach(e => {
+                    setSelectedCheckboxes((prevValues) => {
+                        return [...prevValues, {
+                            answerId: e.id,
+                            checked: false
+                        }]
+                    })
+                })
+            }
+
+        } else {
+
+        }
+
+        if (userAnswers[currentQuestionId + 1] != undefined) {
+
+            let saveData = userAnswers
+            saveData[currentQuestionId].selectedAnswersId = selectedValues
+            setUserAnswers(saveData)
+
+            console.log("TOTO")
+            console.log(saveData[currentQuestionId])
+
+            setSelectedCheckboxes([])
             userAnswers[currentQuestionId + 1].selectedAnswersId.forEach(answer => {
                 setSelectedCheckboxes((prevValues) => {
                     return [...prevValues, {
@@ -98,15 +114,15 @@ const AttemptExam = (props) => {
 
 
     const previousQuestion = () => {
-
-        if (userAnswers.length === currentQuestionId) {
-            setUserAnswers((prevValues) => {
-                return [...prevValues, {
-                    questionId: attemptData.startAttempt[currentQuestionId].id,
-                    selectedAnswersId: []
-                }]
-            })
-        }
+        setBack(true)
+        // if (userAnswers.length === currentQuestionId) {
+        //     setUserAnswers((prevValues) => {
+        //         return [...prevValues, {
+        //             questionId: attemptData.startAttempt[currentQuestionId].id,
+        //             selectedAnswersId: []
+        //         }]
+        //     })
+        // }
 
         console.log("userAnswers")
         console.log(userAnswers)
@@ -146,7 +162,8 @@ const AttemptExam = (props) => {
 
     const {isExamActive} = state;
 
-    if (isExamActive && attemptData) return (
+
+    if (isExamActive && attemptData && currentQuestionId != attemptData.startAttempt.length) return (
         <AttemptQuestion nextQuestion={(e) => nextQuestion(e)} previousQuestion={previousQuestion}
                          currentQuestion={attemptData.startAttempt[currentQuestionId]}
                          questionId={currentQuestionId} questionLength={attemptData.startAttempt.length}
@@ -154,6 +171,10 @@ const AttemptExam = (props) => {
                          useranswers={userAnswers}
         />
     );
+
+    if (isExamActive && attemptData && currentQuestionId == attemptData.startAttempt.length) return <p
+        onClick={() => console.log(userAnswers)}>tyle</p>
+
 };
 
 export default AttemptExam;
