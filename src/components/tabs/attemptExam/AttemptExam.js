@@ -35,26 +35,112 @@ const AttemptExam = (props) => {
     const [userAnswers, setUserAnswers] = useState([])
     const [selectedCheckboxes, setSelectedCheckboxes] = useState([])
 
-    const nextQuestion = (selectedValues, selectedCheckboxesForm) => {
-        setUserAnswers((prevValues) => {
-            return [...prevValues, {
-                questionId: attemptData.startAttempt[currentQuestionId].id,
-                selectedAnswersId: selectedValues
-            }]
-        })
+    useEffect(() => {
+        if (attemptData) {
+            attemptData.startAttempt[currentQuestionId].answers.forEach(e => {
+                setSelectedCheckboxes((prevValues) => {
+                    return [...prevValues, {
+                        answerId: e.id,
+                        checked: false
+                    }]
+                })
+            })
+        }
+    }, [attemptLoading])
 
-        setSelectedCheckboxes((prevValues) => {
-            return [...prevValues, [selectedCheckboxesForm]]
-        })
+
+    const nextQuestion = (selectedValues) => {
+        if (userAnswers.length >= currentQuestionId) {
+            console.log("Added")
+            setUserAnswers((prevValues) => {
+                return [...prevValues, {
+                    questionId: attemptData.startAttempt[currentQuestionId].id,
+                    selectedAnswersId: selectedValues
+                }]
+            })
+
+            setSelectedCheckboxes([])
+            attemptData.startAttempt[currentQuestionId + 1].answers.forEach(e => {
+                setSelectedCheckboxes((prevValues) => {
+                    return [...prevValues, {
+                        answerId: e.id,
+                        checked: false
+                    }]
+                })
+            })
+        }
+        if (userAnswers[currentQuestionId + 1] != undefined) {
+            setSelectedCheckboxes([])
+
+            userAnswers[currentQuestionId + 1].selectedAnswersId.forEach(answer => {
+                setSelectedCheckboxes((prevValues) => {
+                    return [...prevValues, {
+                        answerId: answer,
+                        checked: true
+                    }]
+                })
+            })
+
+            attemptData.startAttempt[currentQuestionId + 1].answers.forEach(e => {
+                if (!userAnswers[currentQuestionId + 1].selectedAnswersId.includes(e.id)) {
+                    setSelectedCheckboxes((prevValues) => {
+                        return [...prevValues, {
+                            answerId: e.id,
+                            checked: false
+                        }]
+                    })
+                }
+            })
+        }
 
         setCurrentQuestionId(currentQuestionId + 1)
-        console.log(userAnswers)
     }
 
+
     const previousQuestion = () => {
+
+        if (userAnswers.length === currentQuestionId) {
+            setUserAnswers((prevValues) => {
+                return [...prevValues, {
+                    questionId: attemptData.startAttempt[currentQuestionId].id,
+                    selectedAnswersId: []
+                }]
+            })
+        }
+
+        console.log("userAnswers")
+        console.log(userAnswers)
+
+        setSelectedCheckboxes([])
+
+        userAnswers[currentQuestionId - 1].selectedAnswersId.forEach(answer => {
+            setSelectedCheckboxes((prevValues) => {
+                return [...prevValues, {
+                    answerId: answer,
+                    checked: true
+                }]
+            })
+        })
+
+        attemptData.startAttempt[currentQuestionId - 1].answers.forEach(e => {
+            if (!userAnswers[currentQuestionId - 1].selectedAnswersId.includes(e.id)) {
+                setSelectedCheckboxes((prevValues) => {
+                    return [...prevValues, {
+                        answerId: e.id,
+                        checked: false
+                    }]
+                })
+            }
+        })
+
+
         setCurrentQuestionId(currentQuestionId - 1)
-        userAnswers.pop()
+
+        // let saveData = userAnswers
+        // saveData.pop()
+        // setUserAnswers(saveData)
     }
+
 
     if (state === null) return 'Null'
 
@@ -64,6 +150,8 @@ const AttemptExam = (props) => {
         <AttemptQuestion nextQuestion={(e) => nextQuestion(e)} previousQuestion={previousQuestion}
                          currentQuestion={attemptData.startAttempt[currentQuestionId]}
                          questionId={currentQuestionId} questionLength={attemptData.startAttempt.length}
+                         selectedCheckboxes={selectedCheckboxes} setSelectedCheckboxes={(e) => setSelectedCheckboxes(e)}
+                         useranswers={userAnswers}
         />
     );
 };
