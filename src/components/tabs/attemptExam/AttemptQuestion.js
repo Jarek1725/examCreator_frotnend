@@ -13,7 +13,7 @@ const AttemptQuestion = (props) => {
             obj = props.selectedCheckboxes.filter(o => {
                 return o.answerId === e.target.value
             })[0]
-            if (obj !== null) {
+            if (obj !== undefined) {
                 obj.checked = false
             }
         } else {
@@ -24,7 +24,7 @@ const AttemptQuestion = (props) => {
             obj = props.selectedCheckboxes.filter(o => {
                 return o.answerId === e.target.value
             })[0]
-            if (obj !== null) {
+            if (obj !== undefined) {
                 obj.checked = true
             }
         }
@@ -43,13 +43,20 @@ const AttemptQuestion = (props) => {
 
 
     const handleNextQuestion = () => {
+        selectedAnswers.forEach((e, index)=>{
+            if(e==undefined){
+                let saveData = selectedAnswers
+                saveData.splice(index, 1)
+                setSelectedAnswers(saveData)
+            }
+        })
         props.nextQuestion(selectedAnswers)
         setSelectedAnswers([])
     }
 
     if (props.selectedCheckboxes.length > 0)
         return (
-            <div className="exam_attempt_container">
+            <div className="exam_attempt_container" key={props.questionId}>
                 <div className="exam_attempt_container_main">
                     <div className="exam_attempt_category_container">
                         {props.currentQuestion.exam.title}
