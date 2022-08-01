@@ -55,7 +55,7 @@ const StartExam = (props) => {
                                 <p>Rules</p>
                                 <p className="exam_rule">Exam has {getExamData.exam.questions.length} active questions.</p>
                                 <p className="exam_rule">Please make sure you select the appropriate answer.</p>
-                                <p className="exam_rule">After confirming your answer, you will not be able to go back
+                                <p className="exam_rule">After confirming your answer, you will be able to go back
                                     to
                                     the
                                     previous question.</p>

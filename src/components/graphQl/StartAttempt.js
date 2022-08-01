@@ -7,6 +7,7 @@ const StartAttempt = () => {
             startAttempt(examPublicId:$examPublicId, appUserPrivateToken:$appUserPrivateToken){
                 id
                 value
+                points
                 exam{
                     title
                 }

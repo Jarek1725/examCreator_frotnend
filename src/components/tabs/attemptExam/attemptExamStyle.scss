@@ -8,6 +8,11 @@
 .exam_attempt_category_container{
   font-size: 1.2rem;
   font-weight: 300;
+  display: flex;
+  justify-content: space-between;
+  p{
+    margin: 0;
+  }
 }
 
 .exam_question_title{
@@ -31,4 +36,9 @@
 
 .exam_action_button{
   margin-right: 20px !important;
+}
+
+.question_answers_container {
+  height: 60vh;
+  overflow: auto;
 }

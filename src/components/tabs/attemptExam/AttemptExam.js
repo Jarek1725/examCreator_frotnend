@@ -19,6 +19,7 @@ const AttemptExam = (props) => {
                 document.querySelector('.navbar_container').style.display = 'none'
                 document.querySelector('.index_container').style.display = 'flex'
                 document.querySelector('.search_panel_container').style.display = 'none'
+                document.querySelector('.index_mid_panel').style.width = '100%'
             }
 
         }, [])
