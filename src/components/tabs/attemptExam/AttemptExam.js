@@ -4,6 +4,7 @@ import {useLocation, useNavigate, useParams} from "react-router-dom";
 import {useMutation} from "@apollo/client";
 import StartAttempt from "../../graphQl/StartAttempt";
 import AttemptQuestion from "./AttemptQuestion";
+import EndAttempt from "../../graphQl/EndAttempt";
 
 const AttemptExam = (props) => {
         const [activeQuestion, setActiveQuestion] = useState(0)
@@ -31,6 +32,17 @@ const AttemptExam = (props) => {
             }
         })
 
+        const [endAttempt, {data: endAttemptData, loading: endAttemptLoading}] = useMutation(EndAttempt())
+            // {
+            // variables: {
+            //     selectedAnswers:userAnswers,
+            //     attemptId:attemptData.attemptId,
+            //     appUserPrivateToken: document.cookie.match('(^|;)\\s*privateToken\\s*=\\s*([^;]+)')?.pop() || ''
+            // }
+            // }
+
+        console.log(attemptData)
+
 
         const [currentQuestionId, setCurrentQuestionId] = useState(0)
         const [userAnswers, setUserAnswers] = useState([])
@@ -38,7 +50,7 @@ const AttemptExam = (props) => {
 
         useEffect(() => {
             if (attemptData) {
-                attemptData.startAttempt[currentQuestionId].answers.forEach(e => {
+                attemptData.startAttempt.questions[currentQuestionId].answers.forEach(e => {
                     setSelectedCheckboxes((prevValues) => {
                         return [...prevValues, {
                             answerId: e.id,
@@ -47,7 +59,7 @@ const AttemptExam = (props) => {
                     })
                 })
 
-                attemptData.startAttempt.forEach(question => {
+                attemptData.startAttempt.questions.forEach(question => {
                     setUserAnswers((prevValues) => {
                         return [...prevValues, {
                             questionId: question.id,
@@ -63,52 +75,49 @@ const AttemptExam = (props) => {
         const [back, setBack] = useState(false)
 
         const nextQuestion = (selectedValues) => {
-
-            setSelectedCheckboxes([])
-
             let saveData = userAnswers
             saveData[currentQuestionId].selectedAnswersId = selectedValues
             setUserAnswers(saveData)
+            if (userAnswers.length !== currentQuestionId + 1) {
+                setSelectedCheckboxes([])
 
-
-            setSelectedCheckboxes([])
-            userAnswers[currentQuestionId + 1].selectedAnswersId.forEach(answer => {
-                setSelectedCheckboxes((prevValues) => {
-                    return [...prevValues, {
-                        answerId: answer,
-                        checked: true
-                    }]
-                })
-            })
-
-            attemptData.startAttempt[currentQuestionId + 1].answers.forEach(e => {
-                if (!userAnswers[currentQuestionId + 1].selectedAnswersId.includes(e.id)) {
+                setSelectedCheckboxes([])
+                userAnswers[currentQuestionId + 1].selectedAnswersId.forEach(answer => {
                     setSelectedCheckboxes((prevValues) => {
                         return [...prevValues, {
-                            answerId: e.id,
-                            checked: false
+                            answerId: answer,
+                            checked: true
                         }]
                     })
-                }
-            })
+                })
 
+                attemptData.startAttempt.questions[currentQuestionId + 1].answers.forEach(e => {
+                    if (!userAnswers[currentQuestionId + 1].selectedAnswersId.includes(e.id)) {
+                        setSelectedCheckboxes((prevValues) => {
+                            return [...prevValues, {
+                                answerId: e.id,
+                                checked: false
+                            }]
+                        })
+                    }
+                })
+
+            } else {
+                endAttempt({
+                    variables: {
+                        selectedAnswers:userAnswers,
+                        attemptId:attemptData.startAttempt.attemptId,
+                        appUserPrivateToken: document.cookie.match('(^|;)\\s*privateToken\\s*=\\s*([^;]+)')?.pop() || ''
+                    }
+                })
+            }
             setCurrentQuestionId(currentQuestionId + 1)
+
         }
 
 
         const previousQuestion = () => {
             setBack(true)
-            // if (userAnswers.length === currentQuestionId) {
-            //     setUserAnswers((prevValues) => {
-            //         return [...prevValues, {
-            //             questionId: attemptData.startAttempt[currentQuestionId].id,
-            //             selectedAnswersId: []
-            //         }]
-            //     })
-            // }
-
-            console.log("userAnswers")
-            console.log(userAnswers)
 
             setSelectedCheckboxes([])
 
@@ -121,7 +130,7 @@ const AttemptExam = (props) => {
                 })
             })
 
-            attemptData.startAttempt[currentQuestionId - 1].answers.forEach(e => {
+            attemptData.startAttempt.questions[currentQuestionId - 1].answers.forEach(e => {
                 if (!userAnswers[currentQuestionId - 1].selectedAnswersId.includes(e.id)) {
                     setSelectedCheckboxes((prevValues) => {
                         return [...prevValues, {
@@ -132,29 +141,23 @@ const AttemptExam = (props) => {
                 }
             })
 
-
             setCurrentQuestionId(currentQuestionId - 1)
-
-            // let saveData = userAnswers
-            // saveData.pop()
-            // setUserAnswers(saveData)
         }
-
 
         if (state === null) return 'Null'
 
         const {isExamActive} = state;
 
 
-        if (isExamActive && attemptData && currentQuestionId != attemptData.startAttempt.length) return (
+
+        if (isExamActive && attemptData && currentQuestionId != attemptData.startAttempt.questions.length) return (
             <AttemptQuestion nextQuestion={(e) => nextQuestion(e)} previousQuestion={previousQuestion}
-                             currentQuestion={attemptData.startAttempt[currentQuestionId]}
-                             questionId={currentQuestionId} questionLength={attemptData.startAttempt.length}
+                             currentQuestion={attemptData.startAttempt.questions[currentQuestionId]}
+                             questionId={currentQuestionId} questionLength={attemptData.startAttempt.questions.length}
                              selectedCheckboxes={selectedCheckboxes} setSelectedCheckboxes={(e) => setSelectedCheckboxes(e)}
                              useranswers={userAnswers}
             />
         );
-
     }
 ;
 
