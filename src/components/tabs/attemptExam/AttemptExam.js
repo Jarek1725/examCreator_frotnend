@@ -96,14 +96,14 @@ const AttemptExam = (props) => {
                 })
 
             } else {
-                Navigate(`/attempt/${attemptData.startAttempt.attemptId}`)
                 endAttempt({
                     variables: {
-                        selectedAnswers:userAnswers,
-                        attemptId:attemptData.startAttempt.attemptId,
+                        selectedAnswers: userAnswers,
+                        attemptId: attemptData.startAttempt.attemptId,
                         appUserPrivateToken: document.cookie.match('(^|;)\\s*privateToken\\s*=\\s*([^;]+)')?.pop() || ''
                     }
-                })
+                }).then(() => Navigate(`/attempt/${attemptData.startAttempt.attemptId}`)
+                )
             }
             setCurrentQuestionId(currentQuestionId + 1)
 

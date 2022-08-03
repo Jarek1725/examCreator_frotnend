@@ -56,11 +56,13 @@ const GetAttemptResult = (category, school, sortBy) => {
                         answers{
                             id
                             value
+                            isCorrect
                         }
                     }
                     attemptAnswers{
                         answer{
                             id
+                            isCorrect
                         }
                     }
                 }

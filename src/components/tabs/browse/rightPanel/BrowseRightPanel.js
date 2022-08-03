@@ -35,12 +35,6 @@ const BrowseRightPanel = () => {
                                 <BrowseRightPanelGridElement data={groupedData[e]}/>
                             </div>
                     ))
-                    // historyData.map(e => (
-                    //     <div className="exam_by_day_container" key={e.date}>
-                    //         <p>{e.date}</p>
-                    //         <BrowseRightPanelGridElement data={e.exams}/>
-                    //     </div>
-                    // ))
                 }
             </div>
         </div>

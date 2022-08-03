@@ -1,0 +1,121 @@
+@use '../common/styleVariables';
+
+.attempt_result_divider {
+  height: calc(100vh - 16vh - 8vh - 30px);
+  display: grid;
+  grid-template-columns: 5fr 2fr;
+}
+
+.attempt_result_right_container {
+  width: 85%;
+  margin: auto;
+  background: styleVariables.$lightBlueBgcColor;
+  border-radius: 25px;
+  height: 100%;
+}
+
+.attempt_result_right_top_text {
+  font-size: 24px;
+  padding: 15px 25px;
+  color: styleVariables.$darkTextColor;
+  overflow: auto;
+
+  p {
+    font-weight: 600;
+    margin: 0;
+  }
+}
+
+
+
+.attempt_result_passed, .attempt_result_failed{
+  padding: 4px 7px;
+  max-width: fit-content;
+  p{
+    padding: 6px 22px;
+    border-radius: 12px;
+    color: white;
+    font-weight: 600;
+    margin: 15px 0 0;
+  }
+
+  margin-left: 9%;
+}
+
+.attempt_result_failed p{
+  background-color: #E38C9B;
+}
+
+.attempt_result_passed p{
+  background-color: #C8EDA7;
+}
+
+.attempt_container_square_background{
+  padding: 4px 7px;
+  max-width: fit-content;
+  p{
+    width: 25px;
+    text-align: center;
+    padding: 3px 16px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    margin: 10px 0;
+  }
+
+  margin-left: 9%;
+}
+
+.attempt_container_square_value{
+  p {
+    font-weight: 500;
+    margin: 4px 4px 4px 10px;
+  }
+}
+
+.attempt_result_mini_container{
+  display: flex;
+  align-items: center;
+}
+
+.attempt_container_square_background_points{
+  p{
+    background-color: #9FDEFD;
+  }
+}
+
+.attempt_result_percentage_score{
+  p{
+    font-weight: 500;
+    margin-left: 28px;
+  }
+  display: flex;
+  align-items: center;
+  margin-left: calc(10% + 5px);
+}
+
+.attempt_result_percentage_progress_container{
+  margin-left: 7px;
+}
+
+.attempt_container_square_background_wrong_answers{
+  p {
+    background-color: #E38C9B;
+  }
+}
+
+.attempt_container_square_background_correct_answers{
+  p{
+    background-color: #C8EDA7;
+  }
+}
+
+.attempt_container_square_background_points_to_pass{
+  p{
+    background-color: #CCA7ED;
+  }
+}
+
+.attempt_result_section{
+  margin-top: 25px;
+}
