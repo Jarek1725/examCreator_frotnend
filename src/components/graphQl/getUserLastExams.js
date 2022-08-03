@@ -6,6 +6,7 @@ const GET_EXAM_ATTEMPTS = gql`
         examAttempts(filter:{examId:$examId, publicToken:$publicToken}){
             createDate
             score
+            id
             exam{
                 maxPoints
                 title

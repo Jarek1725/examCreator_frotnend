@@ -8,57 +8,6 @@ import GetUserLastExams from "../../../graphQl/getUserLastExams";
 
 const BrowseRightPanel = () => {
 
-    const historyData = [
-        {
-            date: "22.07.2022",
-            exams: [
-                {
-                    id: "#S34F35",
-                    categories: "Podstawy programowanie, Sesja 2022",
-                    name: "Egzamin WIEIK programowanie",
-                    result: 1
-                },
-                {
-                    id: "#24GS5U",
-                    categories: "ASK, Sesja 2021",
-                    name: "Kolokwium zaliczeniowe ASK",
-                    result: 0
-                },
-                {
-                    id: "#BA35FS",
-                    categories: "Matematyka",
-                    name: "Egzamin Matematyka Dyskretna",
-                    result: 1
-                }
-            ]
-        },
-        {
-            date: "21.07.2022",
-            exams: [
-                {
-                    id: "#S34F31",
-                    categories: "Podstawy programowanie, Sesja 2022",
-                    name: "Egzamin WIEIK programowanie",
-                    result: 1
-                }
-            ]
-        },
-        {
-            date: "13.02.2022",
-            exams: [
-                {
-                    id: "#S34F32",
-                    categories: "Podstawy programowanie, Sesja 2022",
-                    name: "Egzamin WIEIK programowanie",
-                    result: 1
-                }
-            ]
-        }
-    ]
-
-    let examId = null
-    let publicToken = null
-
     const {data:attemptData, loading, error} = GetUserLastExams(null, document.cookie.match('(^|;)\\s*publicToken\\s*=\\s*([^;]+)')?.pop() || '')
 
     let groupedData = []
@@ -73,7 +22,7 @@ const BrowseRightPanel = () => {
         ))
     }
 
-    if(loading) return <p>test</p>
+    if(loading) return <p>loading</p>
 
     return (
         <div className="browse_right_panel_container">

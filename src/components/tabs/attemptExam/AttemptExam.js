@@ -33,13 +33,6 @@ const AttemptExam = (props) => {
         })
 
         const [endAttempt, {data: endAttemptData, loading: endAttemptLoading}] = useMutation(EndAttempt())
-            // {
-            // variables: {
-            //     selectedAnswers:userAnswers,
-            //     attemptId:attemptData.attemptId,
-            //     appUserPrivateToken: document.cookie.match('(^|;)\\s*privateToken\\s*=\\s*([^;]+)')?.pop() || ''
-            // }
-            // }
 
         console.log(attemptData)
 
@@ -103,6 +96,7 @@ const AttemptExam = (props) => {
                 })
 
             } else {
+                Navigate(`/attempt/${attemptData.startAttempt.attemptId}`)
                 endAttempt({
                     variables: {
                         selectedAnswers:userAnswers,
@@ -147,7 +141,6 @@ const AttemptExam = (props) => {
         if (state === null) return 'Null'
 
         const {isExamActive} = state;
-
 
 
         if (isExamActive && attemptData && currentQuestionId != attemptData.startAttempt.questions.length) return (

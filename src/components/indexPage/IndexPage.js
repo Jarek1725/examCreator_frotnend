@@ -10,6 +10,7 @@ import {gql, useLazyQuery} from "@apollo/client";
 import {CircularProgress} from "@mui/material";
 import StartExam from "../tabs/startExam/StartExam";
 import AttemptExam from "../tabs/attemptExam/AttemptExam";
+import AttemptResult from "../AttemptResult/AttemptResult";
 
 
 const LOGIN = gql`
@@ -63,6 +64,7 @@ const IndexPage = () => {
                                 <Route exact path="/" element={<BrowseTab/>}/>
                                 <Route path="/exams/:id" element={<StartExam/>}/>
                                 <Route path="/exams/:id/attempt" element={<AttemptExam/>}/>
+                                <Route path="/attempt/:id" element={<AttemptResult/>}/>
                             </Routes>
                         </div>
                     </div>
