@@ -4,7 +4,7 @@ import ExamDetailsTopPanel from "../common/examDetailsTopPanel/ExamDetailsTopPan
 import {useLazyQuery} from "@apollo/client";
 import GetAttemptResult from "../graphQl/GetAttemptResult";
 import {useNavigate, useParams} from "react-router-dom";
-import {CircularProgress} from "@mui/material";
+import {CircularProgress, Rating} from "@mui/material";
 
 const AttemptResult = () => {
 
@@ -41,15 +41,15 @@ const AttemptResult = () => {
                 }
             })
 
-            if(e.attemptAnswers.length===questionCorrectAnswers){
-                e.attemptAnswers.forEach(attemptAnswer=>{
-                    if(e.question.answers.find(o=>{
+            if (e.attemptAnswers.length === questionCorrectAnswers) {
+                e.attemptAnswers.forEach(attemptAnswer => {
+                    if (e.question.answers.find(o => {
                         return o.id === attemptAnswer.answer.id
-                    })){
+                    })) {
                         selectedAnswers++
                     }
                 })
-                if(selectedAnswers===questionCorrectAnswers){
+                if (selectedAnswers === questionCorrectAnswers) {
                     correctAnswersCounter++
                 }
             }
@@ -60,7 +60,13 @@ const AttemptResult = () => {
     }
 
     const getWrongAnswersValue = () => {
-        return attemptResultData.attemptResult.attemptQuestion.length-getCorrectAnswersValue()
+        return attemptResultData.attemptResult.attemptQuestion.length - getCorrectAnswersValue()
+    }
+
+    const showRateExam = () => {
+        let appUser = document.cookie.match('(^|;)\\s*publicToken\\s*=\\s*([^;]+)')?.pop() || ''
+        console.log(appUser)
+        return appUser == attemptResultData.attemptResult.user.publicToken
     }
 
     const navigate = useNavigate();
@@ -124,6 +130,15 @@ const AttemptResult = () => {
                                 <p>{getPointsToPass()}</p></div>
                             <div className="attempt_container_square_value"><p>Points to pass</p></div>
                         </div>
+                    </div>
+                    <div className="attempt_result_mini_container">
+                        {showRateExam() ?
+                            <div className="attempt_result_rate_exam_container">
+                                <div className="attempt_result_rate_exam"><p>Rate exam</p></div>
+                                <Rating name="simple-controlled" className="attempt_result_rate_exam_icon"
+                                        style={{color: "#5B59B5"}}/>
+                            </div>
+                            : ''}
                     </div>
                 </div>
             </div>

@@ -29,7 +29,7 @@ const BrowseRightPanel = () => {
             <div className="browse_right_panel_header_container">
                 <p>Your last exams</p>
                 {
-                        Object.keys(groupedData).map(e=>(
+                        Object.keys(groupedData).reverse().map(e=>(
                             <div className="exam_by_day_container" key={e.date}>
                                 <p>{e}</p>
                                 <BrowseRightPanelGridElement data={groupedData[e]}/>

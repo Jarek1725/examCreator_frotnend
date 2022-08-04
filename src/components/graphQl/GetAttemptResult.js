@@ -42,6 +42,9 @@ const GetAttemptResult = (category, school, sortBy) => {
     return (gql`
         query GetAttemptResult($attemptId:Int){
             attemptResult(attemptId:$attemptId){
+                user{
+                    publicToken
+                }
                 id
                 exam{
                     percentToPass

@@ -27,95 +27,111 @@
 }
 
 
-
-.attempt_result_passed, .attempt_result_failed{
+.attempt_result_passed, .attempt_result_failed {
   padding: 4px 7px;
   max-width: fit-content;
-  p{
+
+  p {
     padding: 6px 22px;
     border-radius: 12px;
     color: white;
     font-weight: 600;
-    margin: 15px 0 0;
+    margin: 7% 0 0;
   }
 
   margin-left: 9%;
 }
 
-.attempt_result_failed p{
+.attempt_result_failed p {
   background-color: #E38C9B;
 }
 
-.attempt_result_passed p{
+.attempt_result_passed p {
   background-color: #C8EDA7;
 }
 
-.attempt_container_square_background{
+.attempt_container_square_background {
   padding: 4px 7px;
   max-width: fit-content;
-  p{
+
+  p {
     width: 25px;
     text-align: center;
     padding: 3px 16px;
     border-radius: 10px;
     color: white;
     font-weight: bold;
-    margin: 10px 0;
+    margin: 7% 0;
   }
 
   margin-left: 9%;
 }
 
-.attempt_container_square_value{
+.attempt_container_square_value {
   p {
     font-weight: 500;
     margin: 4px 4px 4px 10px;
   }
 }
 
-.attempt_result_mini_container{
+.attempt_result_mini_container {
   display: flex;
   align-items: center;
 }
 
-.attempt_container_square_background_points{
-  p{
+.attempt_container_square_background_points {
+  p {
     background-color: #9FDEFD;
   }
 }
 
-.attempt_result_percentage_score{
-  p{
+.attempt_result_percentage_score {
+  p {
     font-weight: 500;
     margin-left: 28px;
   }
+
   display: flex;
   align-items: center;
   margin-left: calc(10% + 5px);
 }
 
-.attempt_result_percentage_progress_container{
+.attempt_result_percentage_progress_container {
   margin-left: 7px;
 }
 
-.attempt_container_square_background_wrong_answers{
+.attempt_container_square_background_wrong_answers {
   p {
     background-color: #E38C9B;
   }
 }
 
-.attempt_container_square_background_correct_answers{
-  p{
+.attempt_container_square_background_correct_answers {
+  p {
     background-color: #C8EDA7;
   }
 }
 
-.attempt_container_square_background_points_to_pass{
-  p{
+.attempt_container_square_background_points_to_pass {
+  p {
     background-color: #CCA7ED;
   }
 }
 
-.attempt_result_section{
+.attempt_result_section {
   margin-top: 25px;
+}
+
+.attempt_result_rate_exam {
+  font-size: 16px;
+}
+
+.attempt_result_rate_exam_container{
+  margin-left: calc(9% + 7px);
+  display: flex;
+  align-items: center;
+}
+
+.attempt_result_rate_exam_icon{
+  margin-left: 10px;
 }
