@@ -15,7 +15,7 @@
   }
 }
 
-.browse_tab_loader_container{
+.browse_tab_loader_container {
   height: calc(76vh - 30px);
   width: 100%;
   display: flex;
@@ -45,8 +45,7 @@
 }
 
 .browse_tab_main_grid_panel_name_text, .browse_tab_main_grid_panel_categories_text, .browse_tab_main_grid_panel_categories_container, .browse_tab_main_grid_panel_name_container, .browse_tab_main_grid_panel_date_text, .browse_tab_main_grid_panel_date_container {
-  color:styleVariables.$mainTextColor
-;
+  color:styleVariables.$mainTextColor;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -140,21 +139,21 @@
     border-radius: 5px;
   }
 
-  .browse_tab_main_grid_panel_bottom_data{
+  .browse_tab_main_grid_panel_bottom_data {
     font-size: 0.7rem;
     height: 40px;
   }
 
-  .browse_tab_main_grid_panel_bottom_data_average_progress{
+  .browse_tab_main_grid_panel_bottom_data_average_progress {
     height: 25px !important;
     width: 25px !important;
   }
 
-  .browse_tab_main_grid_panel_bottom_data_rating_icon{
+  .browse_tab_main_grid_panel_bottom_data_rating_icon {
     font-size: 18px !important;
   }
 
-  .browse_tab_main_grid_panel_bottom_attempts{
+  .browse_tab_main_grid_panel_bottom_attempts {
     padding: 3px 11px !important;
     font-size: 0.7rem;
     border-radius: 5px !important;

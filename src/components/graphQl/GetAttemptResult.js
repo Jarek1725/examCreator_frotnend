@@ -54,6 +54,7 @@ const GetAttemptResult = (category, school, sortBy) => {
                 score
                 attemptQuestion{
                     question{
+                        points
                         value
                         id
                         answers{

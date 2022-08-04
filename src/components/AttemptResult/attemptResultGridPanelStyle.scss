@@ -1,0 +1,79 @@
+@use '../common/styleVariables';
+
+.attempt_result_grid_panel_container {
+  cursor: pointer;
+  overflow: hidden;
+  height: 80px;
+  min-height: 80px;
+  margin-bottom: 15px;
+  border-radius: 22px;
+  background: styleVariables.$lightBlueBgcColor;
+  padding: 0 15px;
+  transition: 0.3s;
+
+  &:hover {
+    height: unset;
+    min-height: 80px;
+
+    .attempt_result_grid_panel_text, .attempt_result_grid_panel_text_container {
+      text-overflow: unset;
+      white-space: unset;
+      overflow: unset;
+    }
+
+    .attempt_result_grid_panel_top_container {
+      height: unset;
+      min-height: 80px;
+    }
+  }
+}
+
+.attempt_result_grid_panel_top_container, .attempt_result_grid_panel_bottom_container {
+  display: grid;
+  height: 80px;
+}
+
+.attempt_result_grid_panel_top_container {
+  grid-template-columns: 1fr 9fr 2fr;
+}
+
+.attempt_result_grid_panel_text, .attempt_result_grid_panel_quastion_value_text {
+  color:styleVariables.$mainTextColor
+;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.attempt_result_grid_panel_id_text {
+  margin: auto;
+}
+
+.attempt_result_grid_panel_text_container {
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.attempt_result_grid_panel_quastion_value_container {
+  justify-items: left;
+}
+
+.attempt_result_grid_panel_id_text_passed{
+  background-color: #C8EDA7;
+  color: white;
+  padding: 4px 19px;
+  border-radius: 9px;
+}
+
+.attempt_result_grid_panel_id_text_failed{
+  background-color: #E38C9B;
+  color: white;
+  padding: 4px 19px;
+  border-radius: 9px;
+}

@@ -5,6 +5,7 @@ import {useLazyQuery} from "@apollo/client";
 import GetAttemptResult from "../graphQl/GetAttemptResult";
 import {useNavigate, useParams} from "react-router-dom";
 import {CircularProgress, Rating} from "@mui/material";
+import AttemptResultGridPanel from "./AttemptResultGridPanel";
 
 const AttemptResult = () => {
 
@@ -44,7 +45,7 @@ const AttemptResult = () => {
             if (e.attemptAnswers.length === questionCorrectAnswers) {
                 e.attemptAnswers.forEach(attemptAnswer => {
                     if (e.question.answers.find(o => {
-                        return o.id === attemptAnswer.answer.id
+                        return o.id === attemptAnswer.answer.id && o.isCorrect===true
                     })) {
                         selectedAnswers++
                     }
@@ -84,7 +85,11 @@ const AttemptResult = () => {
         <div className="attempt_result_container">
             <ExamDetailsTopPanel examTitle={attemptResultData.attemptResult.exam.title}/>
             <div className="attempt_result_divider">
-                <div className="attempt_result_main_container"></div>
+                <div className="attempt_result_main_container">
+                    {attemptResultData.attemptResult.attemptQuestion.map((question, index) => (
+                        <AttemptResultGridPanel question={question} questionIndex={index}/>
+                    ))}
+                </div>
                 <div className="attempt_result_right_container">
                     <div className="attempt_result_right_top_text">Attempt summary</div>
                     {attemptResultData.attemptResult.score >= attemptResultData.attemptResult.exam.maxPoints *
