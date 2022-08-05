@@ -1,5 +1,6 @@
 import React from 'react';
 import './attemptResultGridPanelStyle.scss'
+import {Checkbox, FormControlLabel, FormGroup} from "@mui/material";
 
 const AttemptResultGridPanel = (props) => {
     console.log(props.question)
@@ -54,6 +55,21 @@ const AttemptResultGridPanel = (props) => {
                 <div
                     className="attempt_result_grid_panel_text_container attempt_result_grid_panel_quastion_value_container">
                     <p className="attempt_result_grid_panel_text attempt_result_grid_panel_id_text">{props.question.question.points} points</p>
+                </div>
+                <div className="attempt_result_answers_container">
+                    {props.question.question.answers.map(answer => (
+                        <div className="attempt_result_answer_container">
+                                <div className="attempt_result_selected_value">
+                                            <FormControlLabel control={<Checkbox/>} className="exam_answer_value"
+                                                              // label={<p>{answer.value}</p>}
+                                                              style={{fontSize: "22px"}}
+                                                              disabled
+                                                              value={answer.checked}
+                                            />
+                                </div>
+                            <p>{answer.value}</p>
+                        </div>
+                    ))}
                 </div>
             </div>
         </div>

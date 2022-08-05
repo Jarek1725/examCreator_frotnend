@@ -70,7 +70,6 @@ const AttemptQuestion = (props) => {
                         </div>
                         <FormGroup>
                             <div className="exam_answers_container">
-
                                 {props.currentQuestion.answers.map(answer => (
                                     <div className="exam_answers">
                                         <FormControlLabel control={<Checkbox/>} className="exam_answer_value"

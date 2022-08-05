@@ -25,6 +25,10 @@
       height: unset;
       min-height: 80px;
     }
+
+    .attempt_result_answers_container{
+      display: block;
+    }
   }
 }
 
@@ -38,8 +42,7 @@
 }
 
 .attempt_result_grid_panel_text, .attempt_result_grid_panel_quastion_value_text {
-  color:styleVariables.$mainTextColor
-;
+  color:styleVariables.$mainTextColor ;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -76,4 +79,16 @@
   color: white;
   padding: 4px 19px;
   border-radius: 9px;
+}
+
+.attempt_result_answers_container{
+  display: none;
+  grid-column: 2;
+}
+
+.attempt_result_answer_container{
+  display: flex;
+  align-items: center;
+  color:styleVariables.$mainTextColor ;
+
 }
