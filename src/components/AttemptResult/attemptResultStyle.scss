@@ -6,6 +6,10 @@
   grid-template-columns: 5fr 2fr;
 }
 
+.attempt_result_main_container{
+  overflow: auto;
+}
+
 .attempt_result_right_container {
   width: 85%;
   margin: auto;
