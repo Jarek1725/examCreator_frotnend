@@ -11,6 +11,7 @@ import {CircularProgress} from "@mui/material";
 import StartExam from "../tabs/startExam/StartExam";
 import AttemptExam from "../tabs/attemptExam/AttemptExam";
 import AttemptResult from "../AttemptResult/AttemptResult";
+import CreateExam from "../CreateExam/CreateExam";
 
 
 const LOGIN = gql`
@@ -65,6 +66,7 @@ const IndexPage = () => {
                                 <Route path="/exams/:id" element={<StartExam/>}/>
                                 <Route path="/exams/:id/attempt" element={<AttemptExam/>}/>
                                 <Route path="/attempt/:id" element={<AttemptResult/>}/>
+                                <Route path="/create" element={<CreateExam/>}/>
                             </Routes>
                         </div>
                     </div>
